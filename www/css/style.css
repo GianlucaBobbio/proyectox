@@ -1,0 +1,247 @@
+/* Empty. Add your own CSS if you like */
+.pane, .view{
+	background-color: #EEE;
+}
+.menu-open ion-side-menu-content{
+	transform: translate3d(275px, 70px, 0px) !important;
+}
+
+.menu-content{
+	box-shadow: 0px 0px 40px -10px;
+}
+
+ion-side-menu, ion-side-menu .item-content, ion-side-menu .item{
+	background: transparent !important;
+	color: #FFF;
+}
+ion-side-menu .item{
+	border: none;
+}
+
+ion-side-menus, .red-background{
+	background: linear-gradient(45deg, #eae207 0%,#55a907 80%) !important;
+}
+.menu-logo{
+	/*color: #EEE; */
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.fonana-logo{
+	background-image: url(../img/Fonana.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100px;
+}
+.logo-banana{
+	background-image: url(../img/logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100px;	
+}
+.menu-logo .logo{
+	text-shadow: 1px 2px 7px rgba(0,0,0,0.5);
+}
+.login-logo{
+
+}
+.logo-text{
+	font-size: 16px;
+    font-weight: bold;
+    line-height: 35px;
+    letter-spacing: 4px;
+}
+.logo-utn{
+	background: url('../img/logo_utn.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position: absolute;
+	width: 270px;
+	height: 70px;
+	bottom: 30px;
+}
+.login-content{
+	padding-top: 50px;
+}
+.list-center-items .item{
+	background: transparent;
+    width: 80%;
+    margin: auto;
+    border: none;
+    color: #FFF;
+}
+.item-input input.input-border-bottom{
+	border-bottom: 1px solid #FFF;
+}
+.button-shadow{
+	box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.7);
+}
+.white-card{
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.8);
+	margin: 20px 0px;
+	padding: 15px;
+	border-radius: 5px;
+}
+.white-card-title{
+	color: #888;
+	text-transform: uppercase;
+}
+.white-card-content{
+	margin-top: 5px;
+}
+.round{
+	border-radius: 50%;
+}
+.big-button{
+	height: 80px;
+	width: 80px;
+	font-size: 30px;
+	line-height: 80px;
+	text-align: center;
+}
+.small-button{
+	height: 50px;
+	width: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	text-align: center;
+}
+.inline{
+	display: inline-block;
+}
+.bottom-center-bar{
+	position: absolute;
+	bottom: 20px;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+.bottom-center-bar div{
+	vertical-align: bottom;
+}
+.text-on-bg{
+	opacity: 0.7;
+}
+.padding-20{
+	padding: 20px;
+}
+.big-text{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+input.light{
+	color: #FFF;
+}
+
+.recording{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 5;
+	text-align: center;
+}
+.absolute-center{
+	position: absolute;
+	z-index: 6;
+	top: 50%;
+	left: 0;
+	right: 0;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.margin-top-10{
+	margin-top: 10px;
+}
+.margin-top-20{
+	margin-top: 20px;
+}
+
+
+.left-effect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #EEE;
+	height: 100vh;
+	box-shadow: 0px 0px 20px -2px;
+}
+.left-effect.ng-hide-add{
+	transition: left linear 0.3s;
+	transition-delay: 0.3s;
+}
+.left-effect.ng-hide-remove{
+	transition: left linear 0.3s;
+}
+.left-effect.ng-hide{
+	left: 500px;
+}
+
+.border-none{
+	border: none;
+}
+
+button[disabled]{
+  opacity: 0.5;
+}
+
+.sub{
+	text-decoration: underline;
+}
+
+.light{
+	color: #FFF !important;
+}
+
+.exercise-description{
+	border: 1px solid #CCC; 
+	background-color: #f9f9f9; 
+	padding: 15px; 
+	margin-top: -10px;
+}
+.recording-text{
+	font-size: 20px;
+    bottom: 110px;
+    top: initial;
+    background-color: #FF0000;
+    padding: 10px 0px;
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
+}
+.blink_me {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+.soundImage{
+	width: calc(50% - 10px);
+	border: 10px solid #FFF;
+	height: calc(50vh - 180px); 
+	background-repeat: no-repeat; 
+	background-size: contain; 
+	display: inline-block; 
+	background-position: center;
+}
+
+.soundImage.correctImage{
+	background-color: #3FC380;
+	border-color: #3FC380;
+}
+.soundImage.incorrectImage{
+	background-color: #EC644B;
+	border-color: #EC644B;
+}

@@ -1,0 +1,38 @@
+<ion-view view-title="Ejercicio {{actualExercise}}">
+  <ion-content>
+    <div class="exercise left-effect padding-20" ng-repeat="exercise in exercises" ng-show="actualExercise == exercise.id">
+      <h3 class="positive" ng-show="exercise.type == 1">Repite la oración</h3>
+      <h3 class="positive" ng-show="exercise.type == 2">Entrena la emoción</h3>
+    	<div class="white-card">
+    		<div class="white-card-title">Ejercicio</div>
+    		<div class="white-card-content">{{exercise.excercise}}</div>
+    	</div>
+    	<div class="white-card">
+    		<div class="white-card-title">Ingresado</div>
+    		<div class="white-card-content">
+          El macri está bajo la alfombra
+          {{recognizedText}}
+        </div>
+    	</div>
+    	<div class="text-on-bg big-text" style="text-align: center;">
+    		<span class="positive">RESULTADO: </span>
+    		<br><br>
+    		<span class="balanced" style="font-size: 30px;">CORRECTO!</span>
+    	</div>
+    </div>
+  </ion-content>
+  <div ng-show="recording" class="recording">
+    <div class="absolute-center light" style="font-size: 50px;">GRABANDO</div>
+  </div>
+  <div class="bottom-center-bar" style="z-index: 6;">
+    <button class="calm-bg round small-button inline border-none" ng-click="actualExercise = actualExercise - 1" ng-hide="recording" ng-disabled="actualExercise == exercises[0].id">
+      <i class="ion-chevron-left light"></i>
+    </button>
+	  <div class="round big-button inline button-shadow" ng-click="recordButton()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
+	  	<i class="ion-android-microphone" ng-class="{'positive': recording, 'light': !recording}"></i>
+	  </div>
+    <button class="calm-bg round small-button inline border-none" ng-click="actualExercise = actualExercise + 1" ng-hide="recording" ng-disabled="actualExercise == exercises[exercises.length-1].id">
+      <i class="ion-chevron-right light"></i>
+    </button>
+  </div>
+</ion-view>
