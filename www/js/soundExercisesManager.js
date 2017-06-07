@@ -1,17 +1,18 @@
 angular.module('starter.api', [])
-    .service('SoundExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService) {
+    .service('SoundExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, $q) {
         this.getExercisesByCategory = function(category) {
-            self = this;
-            var exercises = $window.localStorage.getItem("soundExercises");
-            return $filter('filter')(exercises, { category: category }, true);
+            var self = this;
+            var exercises = JSON.parse($window.localStorage.getItem("soundExercises"));
+            exercises = $filter('filter')(exercises, { category: category }, true);
+            return $q.resolve(exercises);
         }
         this.getExercises = function(){
-			self = this;
-            var exercises = $window.localStorage.getItem("soundExercises");
+			var self = this;
+            var exercises = JSON.parse($window.localStorage.getItem("soundExercises"));
         	return exercises;	
         }
         this.loadExercisesDone = function(exercisesDone) {
-            self = this;
+            var self = this;
             return $http.get('db/exercisesSound.json').then(function(json) {
                 var exercises = json.data;
                 var userUid = AuthService.getUserUid();
@@ -23,17 +24,17 @@ angular.module('starter.api', [])
                         exercise.correct = resolvedExercise.correct;
                     }
                 });
-                $window.localStorage.setItem("soundExercises", exercises);
+                $window.localStorage.setItem("soundExercises", JSON.stringify(exercises));
                 return true;
             });
         }
         this.setResult = function(exerciseId, result) {
-            var exercises = $window.localStorage.getItem("soundExercises");
+            var exercises = JSON.parse($window.localStorage.getItem("soundExercises"));
             angular.forEach(exercises, function(exercise) {
                 if (exercise == exerciseId) {
                     exercise.correct = result;
                 }
             });
-            $window.localStorage.setItem("soundExercises", exercises);
+            $window.localStorage.setItem("soundExercises", JSON.stringify(exercises));
         }
     });

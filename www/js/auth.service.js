@@ -1,4 +1,4 @@
-angular.module('starter.api', [])
+angular.module('starter')
     .service('AuthService', function($http, $filter, $firebase, $firebaseArray, $firebaseAuth, $window, $state) {
         this.getUserUid = function(){
         	var userUid = $window.localStorage.getItem("loggedUserUid");

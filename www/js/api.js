@@ -1,4 +1,4 @@
-angular.module('starter.api', [])
+angular.module('starter')
     .service('ApiService', function($http, $filter) {
         this.getExercises = function(type) {
             switch (type) {

@@ -10,7 +10,7 @@ angular.module('starter.controllers')
             $scope.selected = null;
             $scope.correct = null;
             $scope.compareExercises.push($scope.actualExercise);
-            loadCompareExercises($scope.actualExercise.type);
+            loadCompareExercises($scope.actualExercise.category);
             $scope.playing = false;
             sound = null;
         }
@@ -57,9 +57,9 @@ angular.module('starter.controllers')
             }
         }
 
-        function loadCompareExercises(type) {
+        function loadCompareExercises(category) {
             var filteredExercises = exercises.all.filter(function(exercise) {
-                return exercise.type == type;
+                return exercise.category == category;
             });
             var randomExercise = filteredExercises[Math.floor(Math.random() * filteredExercises.length)];
             var contains = $scope.compareExercises.filter(function(exercise) {
@@ -69,7 +69,7 @@ angular.module('starter.controllers')
                 $scope.compareExercises.push(randomExercise);
             }
             if ($scope.compareExercises.length < $scope.actualExercise.toCompare) {
-                loadCompareExercises(type);
+                loadCompareExercises(category);
             } else {
                 $scope.compareExercises = shuffle($scope.compareExercises);
             }

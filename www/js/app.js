@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.api', 'firebase'])
+angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter.directives', 'starter.api', 'firebase'])
 
 .run(function($ionicPlatform, $rootScope, ApiService, ExercisesManager) {
     ExercisesManager.checkAndLoadExercises();
@@ -25,59 +25,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-
-    .state('login', {
-        url: '/login',
-        templateUrl: 'modules/login/login.html',
-        controller: 'LoginCtrl'
-    })
-
-    .state('app', {
-        url: '/app',
-        abstract: true,
-        templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
-    })
-
-    .state('app.profile', {
-        url: '/profile',
-        views: {
-            'menuContent': {
-                templateUrl: 'modules/profile/profile.html',
-                controller: 'ProfileCtrl'
-            }
-        }
-    })
-    .state('app.toneExercises', {
-            url: '/exercises/tone',
-            views: {
-                'menuContent': {
-                    templateUrl: 'modules/exercises/tone.exercise.html',
-                    controller: 'ToneExerciseCtrl'
-                }
-            },
-            resolve: {
-                resolvedExercises: function(ApiService, $filter, $stateParams) {
-                    var storage = "actualToneExercise"
-                    return ApiService.getToneExercises().then(function(exercises) {
-                        var actualStoragedExercise = localStorage.getItem(storage);
-                        var actualExercise = null;
-                        if (actualStoragedExercise && $filter('filter')(exercises, { id: parseInt(actualStoragedExercise, 10) }, true).length) {
-                            actualExercise = parseInt(actualStoragedExercise, 10);
-                        } else {
-                            actualExercise = exercises[0].id;
-                            localStorage.setItem(storage, exercises[0].id);
-                        }
-                        return {
-                          exercises: exercises,
-                          actualExercise: actualExercise
-                        };
-                    });
-                }
-            }
+        .state('login', {
+            url: '/login',
+            templateUrl: 'modules/login/login.html',
+            controller: 'LoginCtrl'
         })
-    .state('app.soundCategories', {
-            url: '/exercises/soundcategories',
+        .state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'templates/menu.html',
+            controller: 'AppCtrl'
+        })
+        .state('app.soundCategories', {
+            url: '/soundcategories',
             views: {
                 'menuContent': {
                     templateUrl: 'modules/exercises/sound.categories.html',
@@ -85,8 +45,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
                 }
             }
         })
-    .state('app.soundExercises', {
-            url: '/exercises/sound/:category',
+        .state('app.profile', {
+            url: '/profile',
+            views: {
+                'menuContent': {
+                    templateUrl: 'modules/profile/profile.html',
+                    controller: 'ProfileCtrl'
+                }
+            }
+        })
+        // .state('app.toneExercises', {
+        //     url: '/exercises/tone',
+        //     views: {
+        //         'menuContent': {
+        //             templateUrl: 'modules/exercises/tone.exercise.html',
+        //             controller: 'ToneExerciseCtrl'
+        //         }
+        //     },
+        //     resolve: {
+        //         resolvedExercises: function(ApiService, $filter, $stateParams) {
+        //             var storage = "actualToneExercise"
+        //             return ApiService.getToneExercises().then(function(exercises) {
+        //                 var actualStoragedExercise = localStorage.getItem(storage);
+        //                 var actualExercise = null;
+        //                 if (actualStoragedExercise && $filter('filter')(exercises, { id: parseInt(actualStoragedExercise, 10) }, true).length) {
+        //                     actualExercise = parseInt(actualStoragedExercise, 10);
+        //                 } else {
+        //                     actualExercise = exercises[0].id;
+        //                     localStorage.setItem(storage, exercises[0].id);
+        //                 }
+        //                 return {
+        //                     exercises: exercises,
+        //                     actualExercise: actualExercise
+        //                 };
+        //             });
+        //         }
+        //     }
+        // })
+        .state('app.soundExercises', {
+            url: '/exercisesSound/:category',
             views: {
                 'menuContent': {
                     templateUrl: 'modules/exercises/sound.exercise.html',
@@ -96,37 +93,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
             resolve: {
                 exercises: function(SoundExercisesManager, $filter, $stateParams) {
                     var storage = "actualSoundExercise";
-                    return SoundExercisesManager.getExercisesByCategory(parseInt($stateParams.category,10)).then(function(exercises) {
+                    return SoundExercisesManager.getExercisesByCategory(parseInt($stateParams.category, 10)).then(function(exercises) {
+                        var unresolved = $filter('filter')(exercises, function(exercise){
+                            unresolved = true;
+                            if (exercise.correct){
+                                unresolved = false;
+                            }
+                            return unresolved;
+                        }); 
                         return {
                             all: exercises,
-                            unresolved: $filter('filter')(exercises, { correct: null }, true)
-                        };
-                    });
-                }
-            }
-        })
-    .state('app.exercises', {
-            url: '/exercises/:exerciseType',
-            views: {
-                'menuContent': {
-                    templateUrl: 'modules/exercises/exercise.html',
-                    controller: 'ExercisesCtrl'
-                }
-            },
-            resolve: {
-                resolvedExercises: function(ApiService, $filter, $stateParams) {
-                    return ApiService.getExercises(parseInt($stateParams.exerciseType, 10)).then(function(exercises) {
-                        var actualStoragedExercise = localStorage.getItem("actualExercise");
-                        var actualExercise = null;
-                        if (actualStoragedExercise && $filter('filter')(exercises, { id: parseInt(actualStoragedExercise, 10) }, true).length) {
-                            actualExercise = parseInt(actualStoragedExercise, 10);
-                        } else {
-                            actualExercise = exercises[0].id;
-                            localStorage.setItem("actualExercise", exercises[0].id);
-                        }
-                        return {
-                          exercises: exercises,
-                          actualExercise: actualExercise
+                            unresolved: unresolved
                         };
                     });
                 }
@@ -140,26 +117,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
                     controller: 'ExercisesMenuCtrl'
                 }
             }
-        })
-        .state('app.playlists', {
-            url: '/playlists',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/playlists.html',
-                    controller: 'PlaylistsCtrl'
-                }
-            }
-        })
-
-    .state('app.single', {
-        url: '/playlists/:playlistId',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/playlist.html',
-                controller: 'PlaylistCtrl'
-            }
-        }
-    });
+        });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/menuexercises');
+    $urlRouterProvider.otherwise('/app/menuexercises');    
 });

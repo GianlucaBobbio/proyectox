@@ -2,84 +2,84 @@
 	"id":1,
 	"sound":"caballo.mp3",
 	"image":"caballo.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 },{
 	"id":2,
 	"sound":"cabra.mp3",
 	"image":"cabra.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":3,
 	"sound":"cerdo.mp3",
 	"image":"cerdo.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":4,
 	"sound":"elefante.mp3",
 	"image":"elefante.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":5,
 	"sound":"gallo.mp3",
 	"image":"gallo.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":6,
 	"sound":"gato.mp3",
 	"image":"gato.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":7,
 	"sound":"lobo.mp3",
 	"image":"lobo.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":8,
 	"sound":"mono.mp3",
 	"image":"mono.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":9,
 	"sound":"oso.mp3",
 	"image":"oso.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 2
 },{
 	"id":10,
 	"sound":"pajaro.mp3",
 	"image":"pajaro.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 },{
 	"id":11,
 	"sound":"perro.mp3",
 	"image":"perro.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 },{
 	"id":12,
 	"sound":"serpiente.mp3",
 	"image":"serpiente.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 },{
 	"id":13,
 	"sound":"tigre.mp3",
 	"image":"tigre.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 },{
 	"id":14,
 	"sound":"vaca.mp3",
 	"image":"vaca.png",
-	"type": 1,
+	"category": 1,
 	"toCompare": 4
 }]
