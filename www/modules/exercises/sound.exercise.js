@@ -31,7 +31,11 @@ angular.module('starter.controllers')
 
         $scope.playSound = function(argument) {
             if (!$scope.playing) {
-                sound = new Media('db/sounds/' + $scope.actualExercise.sound);
+                sound = new Media('/android_asset/www/db/sounds/' + $scope.actualExercise.sound, function(){
+                    // sound.play();   
+                }, function(e){
+                    alert('error ' + e.code + ' ' + e.message);
+                });
                 sound.play();
                 $scope.playing = true;
             } else {
