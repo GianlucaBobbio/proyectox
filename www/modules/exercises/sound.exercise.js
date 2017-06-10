@@ -1,12 +1,14 @@
 angular.module('starter.controllers')
-    .controller('SoundExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, SoundExercisesManager, $state, $stateParams) {
+    .controller('SoundExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, SoundExercisesManager, $state, $timeout) {
         $scope.position = 0;
+        $scope.playing = false;
+        var sound = null;
+        var positionFix = false;
         init();
 
         function init() {
             $scope.actualExercise = exercises.unresolved[$scope.position];
             $scope.unresolvedExercises = exercises.unresolved;
-            var sound = null;
             loadExercise();
         }
 
@@ -20,56 +22,71 @@ angular.module('starter.controllers')
             sound = null;
         }
 
-        $scope.nextExercise = function() {
-            $scope.actualExercise = exercises.unresolved[$scope.position + 1];
-            $scope.position = $scope.position + 1;
-            loadExercise();
-        }
-
-        $scope.prevExercise = function() {
-            $scope.actualExercise = exercises.unresolved[$scope.position - 1];
-            $scope.position = $scope.position - 1;
-            loadExercise();
-        }
-
-        $scope.playSound = function(exercise) {
-            if (!$scope.playing) {
-                sound = new Media('/android_asset/www/db/sounds/' + exercise.sound, function() {
-                    // sound.play();   
-                }, function(e) {
-                    alert('error ' + e.code + ' ' + e.message);
-                });
-                sound.play();
-                $scope.playing = true;
-                setTimeout(function() {
-                    sound.stop();
-                    sound.release();
-                    $scope.playing = false;
-                }, 3000);
-            } else {
+        function stopPlaying() {
+            if ($scope.playing) {
                 sound.stop();
                 sound.release();
                 $scope.playing = false;
             }
         }
 
-        $scope.playSound = function(exercise) {}
+        $scope.nextExercise = function() {
+            stopPlaying();
+            if (positionFix) {
+                $scope.actualExercise = exercises.unresolved[$scope.position];
+                positionFix = false;
+            } else {
+                $scope.actualExercise = exercises.unresolved[$scope.position + 1];
+                $scope.position = $scope.position + 1;
+            }
+            loadExercise();
+        }
+
+        $scope.prevExercise = function() {
+            stopPlaying();
+            $scope.actualExercise = exercises.unresolved[$scope.position - 1];
+            $scope.position = $scope.position - 1;
+            loadExercise();
+        }
+
+        $scope.playSound = function(exercise) {
+            stopPlaying();
+            sound = new Media('/android_asset/www/db/sounds/' + exercise.sound, function() {
+                // sound.play();   
+            }, function(e) {
+                // alert('error ' + e.code + ' ' + e.message);
+            });
+            sound.play();
+            $scope.playing = true;
+            // setTimeout(function() {
+                // stopPlaying();
+            // }, 3000);
+        }
+
+        // $scope.playSound = function(exercise) {}
 
         $scope.resolveExercise = function(selected) {
             var correct = false;
+            $scope.playSound(selected);
             if (selected.id == $scope.actualExercise.id) {
                 correct = true;
-            } else {
-                $scope.playSound(selected);
             }
             if (!$scope.selected) {
                 $scope.selected = selected;
                 $scope.correct = correct;
                 SoundExercisesManager.setResult($scope.actualExercise.id, correct);
+                exercises.unresolved = $filter('filter')(exercises.unresolved, function(exercise) {
+                    return exercise.id != $scope.actualExercise.id });
+                positionFix = true;
             }
             if (correct) {
-                setTimeout(function() {
-                    $state.reload();
+                $timeout(function() {
+                    stopPlaying();
+                    // $state.reload();
+                    $scope.actualExercise = exercises.unresolved[$scope.position];
+                    positionFix = false;
+                    loadExercise();
+                    $scope.$apply();
                 }, 2000);
                 // init();
                 // $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
