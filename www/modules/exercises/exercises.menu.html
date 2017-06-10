@@ -1,32 +1,38 @@
 <ion-view cache-view="false" view-title="Menú de Ejercicios">
-  <ion-content class="padding">
-  	<div class="text-center">
-      <!-- #/app/exercises/1 -->
-  		<div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(1)">
-  			Pronunciación
-  		</div>
-      <div class="exercise-description" ng-show="vm.selected == 1">
-        <p> Practica vocales, consonantes y sus combinaciones en una práctica incremental.</p>
-      </div>
-      <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
-        Tono
-      </div>
-      <div class="exercise-description" ng-show="vm.selected == 2">
-        <p>Regula el volúmen de tu voz.</p>
-      </div>
-      <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(3)">
-        Ritmo
-      </div>
-      <div class="exercise-description" ng-show="vm.selected == 3">
-        <p>Gradúa la cadencia de tus palabras.</p>
-      </div>
-      <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20"  ng-click="selectExercise(4)">
-        Relación * <!-- esto lo hice yo -->
-      </div>
-      <div class="exercise-description" ng-show="vm.selected == 4">
-        <p>Escucha el sonido y asóciala con su imagen.</p>
-        <p>* Se necesita capacidad auditiva.</p>
-      </div>
-  	</div>
-  </ion-content>
+    <ion-content class="padding">
+        <div class="text-center">
+            <!-- #/app/exercises/1 -->
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(1)">
+                Pronunciación
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 1">
+                <p> Practica vocales, consonantes y sus combinaciones en una práctica incremental.</p>
+            </div>
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
+                Tono
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 2">
+                <p>Regula el volúmen de tu voz.</p>
+            </div>
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(3)">
+                Ritmo
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 3">
+                <p>Gradúa la cadencia de tus palabras.</p>
+            </div>
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(4)">
+                Relación *
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 4">
+                <p>Escucha el sonido y asóciala con su imagen.</p>
+                <p>* Se necesita capacidad auditiva.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startSoundExercises()">
+                    Comenzar
+                </div>
+                <div class="button button-assertive uppercase" ng-click="resetSoundExercises()">
+                    Reiniciar
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

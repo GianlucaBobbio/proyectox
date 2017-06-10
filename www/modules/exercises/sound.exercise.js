@@ -1,9 +1,14 @@
 angular.module('starter.controllers')
-    .controller('SoundExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, SoundExercisesManager, $state) {
-        $scope.actualExercise = exercises.unresolved[0];
-        $scope.unresolvedExercises = exercises.unresolved;
-        var sound = null;
-        loadExercise();
+    .controller('SoundExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, SoundExercisesManager, $state, $stateParams) {
+        $scope.position = 0;
+        init();
+
+        function init() {
+            $scope.actualExercise = exercises.unresolved[$scope.position];
+            $scope.unresolvedExercises = exercises.unresolved;
+            var sound = null;
+            loadExercise();
+        }
 
         function loadExercise() {
             $scope.compareExercises = [];
@@ -16,48 +21,58 @@ angular.module('starter.controllers')
         }
 
         $scope.nextExercise = function() {
-            $scope.actualExercise = exercises.unresolved.filter(function(exercise) {
-                return exercise.id == $scope.actualExercise.id + 1;
-            })[0];
+            $scope.actualExercise = exercises.unresolved[$scope.position + 1];
+            $scope.position = $scope.position + 1;
             loadExercise();
         }
 
         $scope.prevExercise = function() {
-            $scope.actualExercise = exercises.unresolved.filter(function(exercise) {
-                return exercise.id == $scope.actualExercise.id - 1;
-            })[0];
+            $scope.actualExercise = exercises.unresolved[$scope.position - 1];
+            $scope.position = $scope.position - 1;
             loadExercise();
         }
 
-        $scope.playSound = function(argument) {
+        $scope.playSound = function(exercise) {
             if (!$scope.playing) {
-                sound = new Media('/android_asset/www/db/sounds/' + $scope.actualExercise.sound, function(){
+                sound = new Media('/android_asset/www/db/sounds/' + exercise.sound, function() {
                     // sound.play();   
-                }, function(e){
+                }, function(e) {
                     alert('error ' + e.code + ' ' + e.message);
                 });
                 sound.play();
                 $scope.playing = true;
+                setTimeout(function() {
+                    sound.stop();
+                    sound.release();
+                    $scope.playing = false;
+                }, 3000);
             } else {
-                sound.pause();
+                sound.stop();
+                sound.release();
                 $scope.playing = false;
             }
         }
 
+        $scope.playSound = function(exercise) {}
+
         $scope.resolveExercise = function(selected) {
-            $scope.selected = selected;
-            // var selectedSound = new Media('db/sounds/' + selected.sound);
-            // selectedSound.play();
             var correct = false;
             if (selected.id == $scope.actualExercise.id) {
                 correct = true;
+            } else {
+                $scope.playSound(selected);
             }
-            $scope.correct = correct;
-            SoundExercisesManager.setResult($scope.actualExercise.id, correct);
-            $state.reload();
-            if ($scope.playing) {
-                // sound.pause();
-                $scope.playing = false;
+            if (!$scope.selected) {
+                $scope.selected = selected;
+                $scope.correct = correct;
+                SoundExercisesManager.setResult($scope.actualExercise.id, correct);
+            }
+            if (correct) {
+                setTimeout(function() {
+                    $state.reload();
+                }, 2000);
+                // init();
+                // $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
             }
         }
 

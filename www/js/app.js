@@ -96,7 +96,7 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
                     return SoundExercisesManager.getExercisesByCategory(parseInt($stateParams.category, 10)).then(function(exercises) {
                         var unresolved = $filter('filter')(exercises, function(exercise){
                             unresolved = true;
-                            if (exercise.correct){
+                            if (exercise.correct === false || exercise.correct === true){
                                 unresolved = false;
                             }
                             return unresolved;

@@ -11,6 +11,14 @@ angular.module('starter.api', [])
             var exercises = JSON.parse($window.localStorage.getItem("soundExercises"));
         	return exercises;	
         }
+        this.resetExercises = function(){
+            var self = this;
+            return $http.get('db/exercisesSound.json').then(function(json) {
+                var exercises = json.data;
+                $window.localStorage.setItem("soundExercises", JSON.stringify(exercises));
+                return true;
+            });
+        }
         this.loadExercisesDone = function(exercisesDone) {
             var self = this;
             return $http.get('db/exercisesSound.json').then(function(json) {
@@ -31,7 +39,7 @@ angular.module('starter.api', [])
         this.setResult = function(exerciseId, result) {
             var exercises = JSON.parse($window.localStorage.getItem("soundExercises"));
             angular.forEach(exercises, function(exercise) {
-                if (exercise == exerciseId) {
+                if (exercise.id == exerciseId) {
                     exercise.correct = result;
                 }
             });

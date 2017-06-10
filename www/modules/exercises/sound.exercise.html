@@ -1,4 +1,4 @@
-<ion-view view-title="Ejercicio {{actualExercise.id}}">
+<ion-view view-title="Ejercicio {{actualExercise.id}}" cache-view="false">
     <ion-content>
         <div class="exercise padding-20" ng-repeat="exercise in unresolvedExercises" ng-show="actualExercise.id == exercise.id">
             <div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
@@ -7,18 +7,22 @@
             <div class="white-card soundImage" ng-repeat="exercise in compareExercises" ng-style="{'background-image': 'url(db/images/{{exercise.image}})'}" style="margin: 5px 5px;" ng-class="{'correctImage': selected.id == exercise.id && exercise.id == actualExercise.id, 'incorrectImage': selected.id == exercise.id && exercise.id != actualExercise.id}" ng-click="resolveExercise(exercise)">
             </div>
         </div>
+        <div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
+            <span class="positive">RESULTADO: </span>
+            <br>
+            <br>
+            <span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
+            <span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
+        </div>
     </ion-content>
-    <div ng-show="recording" class="recording">
-        <div class="absolute-center light recording-text blink_me">GRABANDO</div>
-    </div>
     <div class="bottom-center-bar" style="z-index: 6;">
-        <button class="calm-bg round small-button inline border-none" ng-click="prevExercise()" ng-hide="recording" ng-disabled="actualExercise == unresolvedExercises[0].id">
+        <button class="calm-bg round small-button inline border-none" ng-click="prevExercise()" ng-hide="recording" ng-disabled="position == 0">
             <i class="ion-chevron-left light"></i>
         </button>
-        <div class="round big-button inline button-shadow" ng-click="playSound()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
+        <div class="round big-button inline button-shadow" ng-click="playSound(actualExercise)" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
             <i class="ion-ios-volume-high" style="font-size: 45px;" ng-class="{'positive': recording, 'light': !recording}"></i>
         </div>
-        <button class="calm-bg round small-button inline border-none" ng-click="nextExercise()" ng-hide="recording" ng-disabled="actualExercise == unresolvedExercises[unresolvedExercises.length-1].id">
+        <button class="calm-bg round small-button inline border-none" ng-click="nextExercise()" ng-hide="recording" ng-disabled="position == unresolvedExercises.length - 1">
             <i class="ion-chevron-right light"></i>
         </button>
     </div>
