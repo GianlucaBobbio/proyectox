@@ -63,7 +63,7 @@ angular.module('starter.controllers')
             // }, 3000);
         }
 
-        // $scope.playSound = function(exercise) {}
+        $scope.playSound = function(exercise) {}
 
         $scope.resolveExercise = function(selected) {
             var correct = false;

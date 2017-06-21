@@ -1,31 +1,59 @@
 angular.module('starter.controllers')
-    .controller('LoginCtrl', function($scope, $firebaseAuth, $state, AuthService, ExercisesManager) {
-        var auth = $firebaseAuth();
-        $scope.vm = {};
-        $scope.vm.createUsuer = false;
-        $scope.vm.form = {};
-        $scope.authWithFace = function() {
-            auth.$signInWithPopup("facebook").then(function(firebaseUser) {
-                console.log("Signed in as:", firebaseUser.uid);
-            }).catch(function(error) {
-                console.log("Authentication failed:", error);
+  .controller('LoginCtrl', function($scope, $firebaseAuth, $state, AuthService, ExercisesManager, $rootScope, $firebaseObject) {
+    var auth = $firebaseAuth();
+    $scope.vm = {};
+    $scope.vm.createUser = false;
+    $scope.vm.form = {};
+    $scope.authWithFace = function() {
+      auth.$signInWithPopup("facebook").then(function(firebaseUser) {
+        console.log("Signed in as:", firebaseUser.uid);
+      }).catch(function(error) {
+        console.log("Authentication failed:", error);
+      });
+    }
+    $scope.logInWithMail = function() {
+      if (!$scope.vm.form.mail || !$scope.vm.form.password) {
+        alert("Completar todos los campos");
+      } else {
+        AuthService.logInWithMail($scope.vm.form.mail, $scope.vm.form.password).then(function() {
+          $rootScope.userId = AuthService.getUserUid();
+          if ($rootScope.userId) {
+            $rootScope.fireUser = $firebaseObject(firebase.database().ref().child("users").orderByChild('userUid').equalTo($rootScope.userId));
+            $rootScope.fireUser.$loaded(function() {
+              console.log($rootScope.fireUser);
+              ExercisesManager.loadExercises();
             });
+          }
+          $state.go("app.menuexercises");
+        });
+      }
+    }
+    $scope.signInWithMail = function() {
+      if (!$scope.vm.form.mail || !$scope.vm.form.password) {
+        alert("Completar todos los campos");
+      } else {
+        if ($scope.vm.form.password != $scope.vm.form.repeatPassword) {
+          alert("Las contraseñas no coinciden");
+        } else {
+          AuthService.signInWithMail($scope.vm.form.mail, $scope.vm.form.password).then(function() {
+            $scope.vm.createUser = false;
+            $scope.vm.form.password = null;
+            $scope.vm.form.repeatPassword = null;
+          });
         }
-        $scope.logInWithMail = function() {	
-            AuthService.logInWithMail($scope.vm.form.mail, $scope.vm.form.password).then(function(){
-                ExercisesManager.loadExercises();
-                $state.go("app.menuexercises");
-            });
-        }
-        $scope.signInWithMail = function() {
-            auth.$createUserWithEmailAndPassword($scope.vm.form.mail, $scope.vm.form.password)
-                .then(function(firebaseUser) {
-                    console.log("User " + firebaseUser.uid + " created successfully!");
-                    alert("Hecho! Intenta iniciar sesión");
-                    $scope.vm.createUsuer = false;
-                    $scope.vm.form.password = null;
-                }).catch(function(error) {
-                    alert("Hubo un problema al crear el usuario : " + error);
-                });
-        }
-    });
+      }
+    }
+    $scope.cancel = function() {
+      $scope.vm.createUser = false;
+      $scope.vm.forgotPassword = false;
+      $scope.vm.form.password = null;
+      $scope.vm.form.repeatPassword = null;
+    }
+    $scope.resetPassword = function(argument) {
+      if (!$scope.vm.form.mail) {
+        alert("Completar todos los campos");
+      } else {
+        AuthService.resetPassword($scope.vm.form.mail);
+      }
+    }
+  });
