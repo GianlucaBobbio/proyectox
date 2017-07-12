@@ -66,6 +66,15 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       }
     })
+     .state('app.changePassword', {
+      url: '/changePassword',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/changePassword/changePassword.html',
+          controller: 'ChangePasswordCtrl'
+        }
+      }
+    })
     // .state('app.toneExercises', {
     //     url: '/exercises/tone',
     //     views: {
@@ -103,7 +112,7 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       },
       resolve: {
-        exercises: function(SoundExercisesManager, $filter, $stateParams) {
+        exercises: function(SoundExercisesManager, $filter, $stateParams, $q) {
           var storage = "actualSoundExercise";
           return SoundExercisesManager.getExercisesByCategory(parseInt($stateParams.category, 10)).then(function(exercises) {
             var unresolved = $filter('filter')(exercises, function(exercise) {
@@ -113,6 +122,11 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
               }
               return unresolved;
             });
+            if(!unresolved || unresolved.length == 0){
+              alert("Sin ejercicios pendientes por resolver.");
+              console.log("Sin ejercicios pendientes por resolver");
+              return $q.reject();
+            }
             return {
               all: exercises,
               unresolved: unresolved

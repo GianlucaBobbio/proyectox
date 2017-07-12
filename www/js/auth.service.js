@@ -19,6 +19,7 @@ angular.module('starter')
         $window.localStorage.setItem("loggedUserUid", JSON.stringify(firebaseUser.uid));
         return true;
       }).catch(function(error) {
+        console.log(error);
         alert("Autenticación fallida : " + error);
         return false;
       });
@@ -33,13 +34,27 @@ angular.module('starter')
           alert("Hecho! Intenta iniciar sesión");
           return true;
         }).catch(function(error) {
-          alert("Hubo un problema al crear el usuario : " + error);
+          console.log(error);
+          if(error.code == "auth/email-already-in-use"){
+            alert("Hubo un problema al crear el usuario: El email ya está en uso");
+          }else{
+            alert("Hubo un problema al crear el usuario : " + error);
+          }
         });
     }
     this.resetPassword = function(mail) {
       return auth.$sendPasswordResetEmail(mail).then(function() {
         console.log("Password reset email sent successfully!");
         alert("Hecho! Se ha enviado un mail con los pasos a seguir");
+        return true;
+      }).catch(function(error) {
+        alert("Error: " + error);
+        return false;
+      });
+    }
+    this.updatePassword = function(password) {
+      return auth.$updatePassword(password).then(function() {
+        alert("Hecho! Se ha actualizado la contraseña ");
         return true;
       }).catch(function(error) {
         alert("Error: " + error);
