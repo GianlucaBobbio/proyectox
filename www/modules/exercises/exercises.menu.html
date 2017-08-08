@@ -8,11 +8,20 @@
             <div class="exercise-description" ng-show="vm.selected == 1">
                 <p> Practica vocales, consonantes y sus combinaciones en una práctica incremental.</p>
             </div>
-            <div ng-disabled="true" class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
                 Tono
             </div>
             <div class="exercise-description" ng-show="vm.selected == 2">
                 <p>Regula el volúmen de tu voz.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startTonePractice()()">
+                    Práctica Libre
+                </div>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startTonePractice()()">
+                    Comenzar
+                </div>
+                <!-- <div class="button button-assertive uppercase" ng-click="resetSoundExercises()">
+                    Reiniciar
+                </div> -->
             </div>
             <div ng-disabled="true" class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(3)">
                 Ritmo
@@ -21,7 +30,7 @@
                 <p>Gradúa la cadencia de tus palabras.</p>
             </div>
             <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(4)">
-                Relación *
+                Discrimicación Auditiva *
             </div>
             <div class="exercise-description" ng-show="vm.selected == 4">
                 <p>Escucha el sonido y asóciala con su imagen.</p>

@@ -1,9 +1,18 @@
-<ion-view view-title="Ejercicio {{actualExercise}}">
+<ion-view view-title="Practicar Tono">
     <ion-content>
-        <div class="exercise left-effect padding-20" ng-repeat="exercise in exercises" ng-show="actualExercise == exercise.id">
+        <div class="exercise padding-20">
             <div class="white-card">
-                <div class="white-card-title">Ejercicio</div>
-                <div class="white-card-content">{{exercise.excercise}}</div>
+                <div class="white-card-title">Volumen Actual</div>
+                <div class="white-card-content">
+                    <div class="amplitude-val">
+                        <div class="amplitude-bar amplitude-higher" ng-style="{'height': (99 - minHigherAmp) * 4 + 'px'}"></div>
+                        <div class="amplitude-bar amplitude-med" ng-style="{'height': (minHigherAmp - maxLowerAmp) * 4 + 'px'}"></div>
+                        <div class="amplitude-bar amplitude-lower" ng-style="{'height': maxLowerAmp * 4 + 'px'}"></div>
+                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp * 100) * 4 + 'px'}">
+                            <i class="arrow left"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="white-card">
                 <div class="white-card-title">Volumen Promedio</div>
@@ -23,14 +32,8 @@
         <div class="absolute-center light recording-text blink_me">GRABANDO</div>
     </div>
     <div class="bottom-center-bar" style="z-index: 6;">
-        <button class="calm-bg round small-button inline border-none" ng-click="actualExercise = actualExercise - 1" ng-hide="recording" ng-disabled="actualExercise == exercises[0].id">
-            <i class="ion-chevron-left light"></i>
-        </button>
         <div class="round big-button inline button-shadow" ng-click="recordButton()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
             <i class="ion-android-microphone" ng-class="{'positive': recording, 'light': !recording}"></i>
         </div>
-        <button class="calm-bg round small-button inline border-none" ng-click="actualExercise = actualExercise + 1" ng-hide="recording" ng-disabled="actualExercise == exercises[exercises.length-1].id">
-            <i class="ion-chevron-right light"></i>
-        </button>
     </div>
 </ion-view>

@@ -1,16 +1,16 @@
 [{
 	"id":1,
-	"excercise":"El gato está debajo de la mesa"
+	"tone":10
 },{
 	"id":2,
-	"excercise":"Pablito clavó un clavito"
+	"tone":25
 },{
 	"id":3,
-	"excercise":"Quiero una empanada de pollo"
+	"tone":30
 },{
 	"id":4,
-	"excercise":"Necesito más amor"
+	"tone":75
 },{
 	"id":5,
-	"excercise":"Aguante el proyecto equis"
+	"tone":50
 }]

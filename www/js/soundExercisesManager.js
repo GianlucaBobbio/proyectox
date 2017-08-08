@@ -1,4 +1,4 @@
-angular.module('starter.api', [])
+angular.module('starter.api')
   .service('SoundExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, $q, $rootScope, $firebaseObject) {
     var exercisesDone = null;
     this.getExercisesByCategory = function(category) {

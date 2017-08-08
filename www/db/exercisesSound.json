@@ -1,85 +1,553 @@
 [{
 	"id":1,
-	"sound":"caballo.mp3",
-	"image":"caballo.png",
+	"sound":"animales/caballo.mp3",
+	"image":"animales/caballo.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":2,
-	"sound":"cabra.mp3",
-	"image":"cabra.png",
+	"sound":"animales/cabra.mp3",
+	"image":"animales/cabra.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":3,
-	"sound":"cerdo.mp3",
-	"image":"cerdo.png",
+	"sound":"animales/cerdo.mp3",
+	"image":"animales/cerdo.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":4,
-	"sound":"elefante.mp3",
-	"image":"elefante.png",
+	"sound":"animales/elefante.mp3",
+	"image":"animales/elefante.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":5,
-	"sound":"gallo.mp3",
-	"image":"gallo.png",
+	"sound":"animales/gallo.mp3",
+	"image":"animales/gallo.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":6,
-	"sound":"gato.mp3",
-	"image":"gato.png",
+	"sound":"animales/gato.mp3",
+	"image":"animales/gato.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":7,
-	"sound":"lobo.mp3",
-	"image":"lobo.png",
+	"sound":"animales/lobo.mp3",
+	"image":"animales/lobo.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":8,
-	"sound":"mono.mp3",
-	"image":"mono.png",
+	"sound":"animales/mono.mp3",
+	"image":"animales/mono.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":9,
-	"sound":"oso.mp3",
-	"image":"oso.png",
+	"sound":"animales/oso.mp3",
+	"image":"animales/oso.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":10,
-	"sound":"pajaro.mp3",
-	"image":"pajaro.png",
+	"sound":"animales/pajaro.mp3",
+	"image":"animales/pajaro.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":11,
-	"sound":"perro.mp3",
-	"image":"perro.png",
+	"sound":"animales/perro.mp3",
+	"image":"animales/perro.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":12,
-	"sound":"serpiente.mp3",
-	"image":"serpiente.png",
+	"sound":"animales/serpiente.mp3",
+	"image":"animales/serpiente.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":13,
-	"sound":"tigre.mp3",
-	"image":"tigre.png",
+	"sound":"animales/tigre.mp3",
+	"image":"animales/tigre.png",
 	"category": 1,
 	"toCompare": 4
 },{
 	"id":14,
-	"sound":"vaca.mp3",
-	"image":"vaca.png",
+	"sound":"animales/vaca.mp3",
+	"image":"animales/vaca.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":15,
+	"sound":"cuerpohumano/aplaudir.mp3",
+	"image":"cuerpohumano/aplaudir.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":16,
+	"sound":"cuerpohumano/beber.mp3",
+	"image":"cuerpohumano/beber.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":17,
+	"sound":"cuerpohumano/besar.mp3",
+	"image":"cuerpohumano/besar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":18,
+	"sound":"cuerpohumano/bostezar.mp3",
+	"image":"cuerpohumano/bostezar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":19,
+	"sound":"cuerpohumano/comer.mp3",
+	"image":"cuerpohumano/comer.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":20,
+	"sound":"cuerpohumano/eructar.mp3",
+	"image":"cuerpohumano/eructar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":21,
+	"sound":"cuerpohumano/estornudar.mp3",
+	"image":"cuerpohumano/estornudar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":22,
+	"sound":"cuerpohumano/gritar.mp3",
+	"image":"cuerpohumano/gritar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":23,
+	"sound":"cuerpohumano/hipo.mp3",
+	"image":"cuerpohumano/hipo.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":24,
+	"sound":"cuerpohumano/llanto.mp3",
+	"image":"cuerpohumano/llanto.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":25,
+	"sound":"cuerpohumano/oler.mp3",
+	"image":"cuerpohumano/oler.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":26,
+	"sound":"cuerpohumano/risa.mp3",
+	"image":"cuerpohumano/risa.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":27,
+	"sound":"cuerpohumano/roncar.mp3",
+	"image":"cuerpohumano/roncar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":28,
+	"sound":"cuerpohumano/silbar.mp3",
+	"image":"cuerpohumano/silbar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":29,
+	"sound":"cuerpohumano/silenciar.mp3",
+	"image":"cuerpohumano/silenciar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":30,
+	"sound":"cuerpohumano/soplar.mp3",
+	"image":"cuerpohumano/soplar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":31,
+	"sound":"cuerpohumano/susurrar.mp3",
+	"image":"cuerpohumano/susurrar.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":32,
+	"sound":"cuerpohumano/toser.mp3",
+	"image":"cuerpohumano/toser.png",
+	"category": 2,
+	"toCompare": 4
+},{
+	"id":33,
+	"sound":"naturaleza/fuego.mp3",
+	"image":"naturaleza/fuego.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":34,
+	"sound":"naturaleza/hojas.mp3",
+	"image":"naturaleza/hojas.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":35,
+	"sound":"naturaleza/lluvia.mp3",
+	"image":"naturaleza/lluvia.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":36,
+	"sound":"naturaleza/olas.mp3",
+	"image":"naturaleza/olas.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":37,
+	"sound":"naturaleza/piedras.mp3",
+	"image":"naturaleza/piedras.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":38,
+	"sound":"naturaleza/rio.mp3",
+	"image":"naturaleza/rio.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":39,
+	"sound":"naturaleza/tormenta.mp3",
+	"image":"naturaleza/tormenta.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":40,
+	"sound":"naturaleza/viento.mp3",
+	"image":"naturaleza/viento.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":41,
+	"sound":"naturaleza/volcan.mp3",
+	"image":"naturaleza/volcan.png",
+	"category": 3,
+	"toCompare": 4
+},{
+	"id":42,
+	"sound":"casa/agua.mp3",
+	"image":"casa/agua.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":43,
+	"sound":"casa/aspiradora.mp3",
+	"image":"casa/aspiradora.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":44,
+	"sound":"casa/batidora.mp3",
+	"image":"casa/batidora.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":45,
+	"sound":"casa/canilla.mp3",
+	"image":"casa/canilla.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":46,
+	"sound":"casa/cepillarse.mp3",
+	"image":"casa/cepillarse.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":47,
+	"sound":"casa/cierre.mp3",
+	"image":"casa/cierre.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":48,
+	"sound":"casa/despertador.mp3",
+	"image":"casa/despertador.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":49,
+	"sound":"casa/ducha.mp3",
+	"image":"casa/ducha.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":50,
+	"sound":"casa/escoba.mp3",
+	"image":"casa/escoba.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":51,
+	"sound":"casa/impresora.mp3",
+	"image":"casa/impresora.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":52,
+	"sound":"casa/inodoro.mp3",
+	"image":"casa/inodoro.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":53,
+	"sound":"casa/microondas.mp3",
+	"image":"casa/microondas.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":54,
+	"sound":"casa/plancha.mp3",
+	"image":"casa/plancha.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":55,
+	"sound":"casa/plato.mp3",
+	"image":"casa/plato.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":56,
+	"sound":"casa/puerta.mp3",
+	"image":"casa/puerta.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":57,
+	"sound":"casa/reloj.mp3",
+	"image":"casa/reloj.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":58,
+	"sound":"casa/secador.mp3",
+	"image":"casa/secador.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":59,
+	"sound":"casa/silla.mp3",
+	"image":"casa/silla.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":60,
+	"sound":"casa/telefono.mp3",
+	"image":"casa/telefono.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":61,
+	"sound":"casa/tijeras.mp3",
+	"image":"casa/tijeras.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":62,
+	"sound":"casa/timbre.mp3",
+	"image":"casa/timbre.png",
+	"category": 4,
+	"toCompare": 4
+},{
+	"id":63,
+	"sound":"ciudad/ambulancia.mp3",
+	"image":"ciudad/ambulancia.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":64,
+	"sound":"ciudad/auto.mp3",
+	"image":"ciudad/auto.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":65,
+	"sound":"ciudad/barco.mp3",
+	"image":"ciudad/barco.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":66,
+	"sound":"ciudad/bicicleta.mp3",
+	"image":"ciudad/bicicleta.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":67,
+	"sound":"ciudad/bocina.mp3",
+	"image":"ciudad/bocina.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":68,
+	"sound":"ciudad/bomberos.mp3",
+	"image":"ciudad/bomberos.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":69,
+	"sound":"ciudad/camion.mp3",
+	"image":"ciudad/camion.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":70,
+	"sound":"ciudad/campana.mp3",
+	"image":"ciudad/campana.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":71,
+	"sound":"ciudad/choque.mp3",
+	"image":"ciudad/choque.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":72,
+	"sound":"ciudad/cohete.mp3",
+	"image":"ciudad/cohete.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":73,
+	"sound":"ciudad/colectivo.mp3",
+	"image":"ciudad/colectivo.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":74,
+	"sound":"ciudad/gente.mp3",
+	"image":"ciudad/gente.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":75,
+	"sound":"ciudad/helicoptero.mp3",
+	"image":"ciudad/helicoptero.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":76,
+	"sound":"ciudad/jardin.mp3",
+	"image":"ciudad/jardin.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":77,
+	"sound":"ciudad/moto.mp3",
+	"image":"ciudad/moto.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":78,
+	"sound":"ciudad/policia.mp3",
+	"image":"ciudad/policia.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":79,
+	"sound":"ciudad/silbato.mp3",
+	"image":"ciudad/silbato.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":80,
+	"sound":"ciudad/taladro.mp3",
+	"image":"ciudad/taladro.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":81,
+	"sound":"ciudad/tractor.mp3",
+	"image":"ciudad/tractor.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":82,
+	"sound":"ciudad/transito.mp3",
+	"image":"ciudad/transito.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":83,
+	"sound":"ciudad/tren.mp3",
+	"image":"ciudad/tren.png",
+	"category": 5,
+	"toCompare": 4
+},{
+	"id":84,
+	"sound":"animales/burro.mp3",
+	"image":"animales/burro.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":85,
+	"sound":"animales/delfin.mp3",
+	"image":"animales/delfin.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":86,
+	"sound":"animales/gallina.mp3",
+	"image":"animales/gallina.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":87,
+	"sound":"animales/leon.mp3",
+	"image":"animales/leon.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":88,
+	"sound":"animales/oveja.mp3",
+	"image":"animales/oveja.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":89,
+	"sound":"animales/pato.mp3",
+	"image":"animales/pato.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":90,
+	"sound":"animales/pavo.mp3",
+	"image":"animales/pavo.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":91,
+	"sound":"animales/pollito.mp3",
+	"image":"animales/pollito.png",
+	"category": 1,
+	"toCompare": 4
+},{
+	"id":92,
+	"sound":"animales/rana.mp3",
+	"image":"animales/rana.png",
 	"category": 1,
 	"toCompare": 4
 }]

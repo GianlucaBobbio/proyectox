@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('starter.api', [])
     .service('ExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, SoundExercisesManager) {
         this.checkAndLoadExercises = function() {
             var self = this;

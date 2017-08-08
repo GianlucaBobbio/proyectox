@@ -1,0 +1,39 @@
+<ion-view view-title="Practicar Tono">
+    <ion-content>
+        <div class="exercise padding-20">
+            <div class="white-card" style="display: inline-block;">
+                <div class="white-card-title">Volumen</div>
+                <div class="white-card-content">
+                    <div class="amplitude-val">
+                    	<div class="amplitude-bar amplitude-higher" ng-style="{'height': (99 - minHigherAmp) * 4 + 'px'}"></div>
+                        <div class="amplitude-bar amplitude-med" ng-style="{'height': (minHigherAmp - maxLowerAmp) * 4 + 'px'}"></div>
+                        <div class="amplitude-bar amplitude-lower" ng-style="{'height': maxLowerAmp * 4 + 'px'}"></div>
+                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp * 100) * 4 + 'px'}">
+                        	<i class="arrow left"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="white-card" style="display: inline-block;">
+                <div class="white-card-title">Volumen Promedio</div>
+                <div class="white-card-content">
+                    {{mediaAmplitude}}
+                </div>
+            </div>
+            <div class="text-on-bg big-text" style="text-align: center;">
+                <span class="positive">RESULTADO: </span>
+                <br>
+                <br>
+                <span class="balanced" style="font-size: 30px;">CORRECTO!</span>
+            </div>
+        </div>
+    </ion-content>
+    <div ng-show="recording" class="recording">
+        <div class="absolute-center light recording-text blink_me">GRABANDO</div>
+    </div>
+    <div class="bottom-center-bar" style="z-index: 6;">
+        <div class="round big-button inline button-shadow" ng-click="recordButton()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
+            <i class="ion-android-microphone" ng-class="{'positive': recording, 'light': !recording}"></i>
+        </div>
+    </div>
+</ion-view>

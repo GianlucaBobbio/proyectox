@@ -87,6 +87,7 @@ ion-side-menus, .red-background{
 	margin: 20px 0px;
 	padding: 15px;
 	border-radius: 5px;
+	vertical-align: top;
 }
 .white-card-title{
 	color: #888;
@@ -244,4 +245,52 @@ button[disabled]{
 .soundImage.incorrectImage{
 	background-color: #EC644B;
 	border-color: #EC644B;
+}
+
+.amplitude-val{
+	position: relative;
+}
+
+.amplitude-bar{
+	/*position: absolute;*/
+	display: block;
+	width: 20px;
+	margin: auto;
+}
+
+.amplitude-lower{
+	background-color: #e7e107;
+}
+
+.amplitude-med{
+	background-color: #3FC380;
+}
+
+.amplitude-higher{
+	background-color: #e79907;
+}
+
+.amplitude-mark{
+	position: absolute;
+	left: calc(50% + 5px);
+	height: 20px;
+	width: 20px;
+	/*background-color: red;*/
+}
+
+i.arrow {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 7px;
+        margin-top: 10px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.bg-cover{
+	background-size: cover;
 }

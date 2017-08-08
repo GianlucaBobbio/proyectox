@@ -32,4 +32,7 @@ angular.module('starter.controllers')
                 }
             });
         }
+        $scope.startTonePractice = function() {
+            $state.go('app.tonePractice');
+        }
     });

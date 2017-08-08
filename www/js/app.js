@@ -52,7 +52,7 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       url: '/soundcategories',
       views: {
         'menuContent': {
-          templateUrl: 'modules/exercises/sound.categories.html',
+          templateUrl: 'modules/exercises/sound/sound.categories.html',
           controller: 'SoundCategoriesCtrl'
         }
       }
@@ -107,7 +107,7 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       url: '/exercisesSound/:category',
       views: {
         'menuContent': {
-          templateUrl: 'modules/exercises/sound.exercise.html',
+          templateUrl: 'modules/exercises/sound/sound.exercise.html',
           controller: 'SoundExerciseCtrl'
         }
       },
@@ -132,6 +132,24 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
               unresolved: unresolved
             };
           });
+        }
+      }
+    })
+    .state('app.toneExercises', {
+      url: '/toneExercises',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/exercises/tone/tone.exercise.html',
+          controller: 'TonePracticeCtrl'
+        }
+      }
+    })
+    .state('app.tonePractice', {
+      url: '/tonePractice',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/exercises/tone/tone.practice.html',
+          controller: 'TonePracticeCtrl'
         }
       }
     })

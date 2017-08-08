@@ -1,10 +1,10 @@
-<ion-view view-title="Ejercicio {{actualExercise.id}}" cache-view="false">
+<ion-view view-title="Ejercicio" cache-view="false">
     <ion-content>
         <div class="exercise padding-20">
             <div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
-                <span class="">ELEGIR EL ANIMAL </span>
+                <span class="">RELACIONAR EL SONIDO CON LA IMAGEN</span>
             </div>
-            <div class="white-card soundImage" ng-repeat="exercise in compareExercises" ng-style="{'background-image': 'url(db/images/{{exercise.image}})'}" style="margin: 5px 5px;" ng-class="{'correctImage': exercise.wasCorrect === true, 'incorrectImage': exercise.wasCorrect === false}" ng-click="resolveExercise(exercise)">
+            <div class="white-card soundImage" ng-repeat="exercise in compareExercises" ng-style="{'background-image': 'url(db/images/{{exercise.image}})'}" ng-class="{'bg-cover': exercise.category == 3}" style="margin: 5px 5px;" ng-class="{'correctImage': exercise.wasCorrect === true, 'incorrectImage': exercise.wasCorrect === false}" ng-click="resolveExercise(exercise)">
             </div>
         </div>
         <div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
