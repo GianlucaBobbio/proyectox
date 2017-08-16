@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.Mahesh.PieChart"
+        version   = "2.0.0">
+    <name>PieChart</name>
+
+    <description>
+      PieChart,Donut etc
+    </description>
+
+    <author href="" email="maheshbhusanoor@gmail.com">
+       Mahesh
+    </author>
+
+	<feature name="http://api.phonegap.com/3.3.0/device" />
+	<feature name="http://api.phonegap.com/3.3.0/network"/>
+
+	<js-module src="lib/statusbar.js" name="statusbar">
+		<clobbers target="window.StatusBar" />
+	</js-module>
+	
+	<feature name="StatusBar">
+		<param name="ios-package" value="CDVStatusBar" onload="true" />
+	</feature>
+	<!-- 
+	<js-module src="lib/Coordinates.js" name="Coordinates">
+		<clobbers target="Coordinates" />
+	</js-module>
+
+	<js-module src="lib/PositionError.js" name="PositionError">
+		<clobbers target="PositionError" />
+	</js-module>
+
+	<js-module src="lib/Position.js" name="Position">
+		<clobbers target="Position" />
+	</js-module>
+
+	<js-module src="lib/geolocation.js" name="geolocation">
+		<clobbers target="navigator.geolocation" />
+	</js-module> -->
+	
+	<preference name="StatusBarOverlaysWebView" value="false" />
+	<preference name="StatusBarBackgroundColor" value="#000000" />
+	<preference name="StatusBarStyle" value="default" />
+	
+    <preference name="phonegap-version" value="cli-5.2.0" />
+    <!--preference name="orientation" value="portrait" /-->
+	<preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+	<preference name="android-windowSoftInputMode" value="adjustResize"/>
+	<!--preference name="splash-screen-duration" value="1500"/-->
+	
+	<preference name="AutoHideSplashScreen" value="true" />
+	<preference name="SplashScreenDelay" value="10000"/>
+	
+	<preference name="KeepRunning" value="true"/>
+	<!--preference name="FadeSplashScreen" value="true" />
+	<preference name="fade-splash-screen-duration" value="5" /-->
+
+	<preference name="webviewbounce" value="false" />
+	<preference name="useBrowserHistory" value="false" />
+	<preference name="exit-on-suspend" value="false" />
+	<preference name="show-splash-screen-spinner" value="true" />
+	<preference name="prerendered-icon" value="true" />
+	<preference name="stay-in-webview" value="false" />
+	<preference name="KeyboardShrinksView" value="true" />
+	<preference name="HideKeyboardFormAccessoryBar" value="false"/>
+	<preference name="SuppressesIncrementalRendering" value="true"/>
+<!-- 
+	<gap:splash src="res/screen/ios/Default@2x~iphone.png" gap:platform="ios"/>
+	<gap:splash src="res/screen/ios/Default~iphone.png" gap:platform="ios"/>
+	<gap:splash src="res/screen/ios/Default-568h@2x~iphone.png" gap:platform="ios" width="640" height="1136" />
+	<gap:splash src="res/screen/ios/Default-Landscape@2x~ipad.png" gap:platform="ios"/>
+	<gap:splash src="res/screen/ios/Default-Landscape~ipad.png" gap:platform="ios"/>
+	<gap:splash src="res/screen/ios/Default-Portrait@2x~ipad.png" gap:platform="ios"/>
+	<gap:splash src="res/screen/ios/Default-Portrait~ipad.png" gap:platform="ios" width="768" height="1024"/>
+
+	<icon gap:density="ldpi" gap:platform="android" src="Icon/android/drawable-ldpi/icon.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="Icon/android/drawable-mdpi/icon.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="Icon/android/drawable-hdpi/icon.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="Icon/android/drawable-xhdpi/icon.png" />
+	<icon gap:density="xxhdpi" gap:platform="android" src="Icon/android/drawable-xxhdpiicon.png" />
+	
+	<icon gap:platform="ios" src="Icon/ios7/appicon.png" height="29" width="29" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="40" width="40" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="50" width="50" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="57" width="57" />
+	<icon gap:platform="ios" src="Icon/ios7/ios7/appicon-Small-50@2x.png" height="58" width="58" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="60" width="60" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="72" width="72" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="76" width="76" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="80" width="80" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="100" width="100" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="114" width="114" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="120" width="120" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="144" width="144" />
+	<icon gap:platform="ios" src="Icon/ios7/appicon-Small-50@2x.png" height="152" width="152" />
+	 -->
+	<content src="index.html" />
+
+	<feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+	<!-- 
+	<feature name="Geolocation">
+		<param name="android-package" value="com.yongsun.cordova.geolocation.GeoBroker"/>
+	</feature>
+	
+	<feature name="Geolocation">
+		<param name="ios-package" value="CDVLocation"/>
+	</feature>
+	 -->
+    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+	 <gap:plugin name="org.apache.cordova.geolocation" />
+	 <gap:plugin name="org.apache.cordova.globalization" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+	<gap:plugin name="org.apache.cordova.splashscreen" />
+	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+	
+	
+	<!-- <allow-navigation href="http://*/*" /> -->
+	<access origin="*"/>
+	<!-- <access origin="tel:*" launch-external="true" />
+    <access origin="mailto:*" launch-external="true" /> -->
+	<access origin="tel:*" launch-external="yes"/>
+	<access origin="sms:*" launch-external="yes"/>
+	<access origin="mailto:*" launch-external="yes" />
+</widget>

@@ -1,0 +1,92 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-positive bar-header ">
+        <h1 class="title">Menu</h1>
+      </ion-header-bar>
+    <ion-content  has-header="true" class="custom" has-bouncing="true">
+     <ion-item menu-close href="#/tab/HomePage" class="item ">Home
+				</ion-item>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+<style>
+#abc{
+left:15%;
+padding-left:0px;
+}
+.custom {
+  background-color: rgba(38, 49, 72, 0.98) !important; /* This sets the background color*/
+ }
+ 
+/*Set the background to transparent for ion-item*/
+.custom .item {
+  background-color: transparent;
+  border:none;   /*Removes all borders*/
+  border-top: 1px solid;   /*Top Border for each menu item*/
+  border-bottom:2px solid;   /*Bottom border for each menu item*/
+  border-color: #484A4A;   /*Sets colors for top and bottom border*/
+  color: white;    /*Text color for each item*/
+}
+ 
+/*Changes the border for the last item*/
+.custom .item:last-child {
+  border-bottom: 1px solid #666;
+}
+ 
+.custom .item-complex .item-content, .dark .item-radio .item-content {
+  background-color: transparent;
+}
+ 
+/*Just makes the type white*/
+.custom h2,
+.custom h3,
+.custom p,
+.custom a {
+  color: white;  /*Text color for each item, overrides the color property above*/
+}
+.bgProfile {
+   background: url("img/1dsp-20151221-pattern005.png") no-repeat center; background-size: cover; width:100%;
+   height:170px;
+   
+} 
+.profile .name {
+    color: #FFF9F7;
+	font-family:bold;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.profile-picture {
+    border-radius: 50%;
+}
+.profile {
+	margin-left: -10px;
+    top: 0;
+    right: 0;
+    left: 20px;
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding-top: 15px;
+}
+<!-- .bgImage:before {
+ content: '';position: absolute;top: 0;right: 0;bottom: 0;left: 0;background-color:rgba(18, 35, 20, 0.4);
+   
+}  -->
+</style>

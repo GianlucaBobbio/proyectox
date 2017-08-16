@@ -1,0 +1,63 @@
+<ion-view view-title="Home" cache-view="false" >
+<ion-header-bar >
+      <ion-nav-bar class="bar bar-positive">
+        <ion-nav-buttons side="left">
+          <button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+    
+    </ion-header-bar>
+   <ion-content has-bouncing="true" style="margin-top:40px;" >
+	 
+		
+		
+	   <div class="list card " ng-click="openPieChart()" id="shadow">
+      <div class="item item-divider cnttext" style="background-color: #7ed5f3;border-color: #674b58;" >Pie Chart</div>
+      <div class="item item-body "style="background-color: #f4f5f7;height: 80px;">
+        <div class ="icon ion-pie-graph" style="font-size: 30px;color: #7ed5f3;">
+      
+        </div>
+      </div>
+    </div>
+      <div class="list card" id="shadow" ng-click="openDonut()">
+      <div class="item item-divider cnttext"style="background-color: #fbb8b9;border-color: #674b58;">Donut</div>
+      <div class="item item-body " style="background-color: #f4f5f7;height: 80px;">
+        <div class ="icon ion-pie-graph" style="font-size: 30px;color: #fbb8b9;">
+    
+        </div>
+      </div>
+    </div>
+	
+      <div class="list card" id="shadow" ng-click="OpenAreaChart()">
+      <div class="item item-divider cnttext"style="background-color: #ecc168;border-color: #674b58;">Area Chart</div>
+      <div class="item item-body " style="background-color: #f4f5f7;height: 80px;">
+        <div class ="icon ion-pie-graph" style="font-size: 30px;color: #ecc168;">
+     
+        </div>
+      </div>
+    </div> 
+     </ion-content>
+</ion-view>
+<style>
+
+
+ ion-item {
+		font-family: 'trebuchet MS' , 'Lucida sans' , Arial;
+		font-size: 14px;
+		color: #444;
+}
+#shadow{
+-webkit-box-shadow: 0 10px 6px -6px #b7a8a8;
+	-moz-box-shadow: 0 10px 6px -6px #b7a8a8;
+	box-shadow: 0 10px 6px -6px #b7a8a8;
+	width:40%;
+	float:left;
+	margin-left:5%;
+	border-radius: 10px;
+	margin-top:0px;
+	text-align: center;
+	color: #6d686d;
+    text-transform: uppercase;
+}
+
+</style>

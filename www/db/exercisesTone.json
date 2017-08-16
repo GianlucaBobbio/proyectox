@@ -1,16 +1,43 @@
 [{
 	"id":1,
-	"tone":10
+	"name": "Biblioteca",
+	"toneFrom": 30,
+	"toneTo": 40,
+	"phrase": "Buenos días, vengo a devolver este libro",
+	"image": ""
 },{
 	"id":2,
-	"tone":25
+	"name": "Conversación cercana",
+	"toneFrom": 40,
+	"toneTo": 50,
+	"phrase": "Después de dos semanas de vacaciones hoy empiezo las clases",
+	"image": ""
 },{
 	"id":3,
-	"tone":30
+	"name": "Restaurante",
+	"toneFrom": 50,
+	"toneTo": 60,
+	"phrase": "Vamos a pedir una pizza grande y de postre torta de chocolate",
+	"image": ""
 },{
 	"id":4,
-	"tone":75
+	"name": "Conversación con ruido de fondo o lejana",
+	"toneFrom": 50,
+	"toneTo": 60,
+	"phrase": "Para llegar tenés que caminar dos cuadras más derecho y doblar a la izquierda",
+	"image": ""
 },{
 	"id":5,
-	"tone":50
+	"name": "Conversación con alguien pasando la aspiradora",
+	"toneFrom": 60,
+	"toneTo": 70,
+	"phrase": "Me falta lavar los platos y ordenar la cocina",
+	"image": ""
+},{
+	"id":6,
+	"name": "Iglesia",
+	"toneFrom": 30,
+	"toneTo": 40,
+	"phrase": "???????",
+	"image": ""
 }]

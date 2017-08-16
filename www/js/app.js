@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter.directives', 'starter.api', 'firebase'])
+angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter.directives', 'starter.api', 'firebase', 'chart.js'])
 
 .run(function($ionicPlatform, $rootScope, ApiService, ExercisesManager, AuthService, $firebaseObject, $firebaseArray) {
   $ionicPlatform.ready(function() {
@@ -30,7 +30,8 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
   }
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, ChartJsProvider) {
+  ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
   $stateProvider
     .state('login', {
       url: '/login',
@@ -113,7 +114,6 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       },
       resolve: {
         exercises: function(SoundExercisesManager, $filter, $stateParams, $q) {
-          var storage = "actualSoundExercise";
           return SoundExercisesManager.getExercisesByCategory(parseInt($stateParams.category, 10)).then(function(exercises) {
             var unresolved = $filter('filter')(exercises, function(exercise) {
               unresolved = true;
@@ -135,13 +135,111 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       }
     })
+    .state('app.soundTracing', {
+      url: '/soundTracing',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/tracing/sound.tracing.html',
+          controller: 'SoundTracingCtrl'
+        }
+      },
+      resolve: {
+        exercisesCategory1: function(SoundExercisesManager, $filter, $stateParams, $q) {
+          return SoundExercisesManager.getExercisesByCategory(1).then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+        exercisesCategory2: function(SoundExercisesManager, $filter, $stateParams, $q) {
+          return SoundExercisesManager.getExercisesByCategory(2).then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+        exercisesCategory3: function(SoundExercisesManager, $filter, $stateParams, $q) {
+          return SoundExercisesManager.getExercisesByCategory(3).then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+        exercisesCategory4: function(SoundExercisesManager, $filter, $stateParams, $q) {
+          return SoundExercisesManager.getExercisesByCategory(4).then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+        exercisesCategory5: function(SoundExercisesManager, $filter, $stateParams, $q) {
+          return SoundExercisesManager.getExercisesByCategory(5).then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        }
+      }
+    })
     .state('app.toneExercises', {
       url: '/toneExercises',
       views: {
         'menuContent': {
           templateUrl: 'modules/exercises/tone/tone.exercise.html',
-          controller: 'TonePracticeCtrl'
+          controller: 'ToneExerciseCtrl'
         }
+      },
+      resolve: {
+        exercises: function(ToneExercisesManager, $filter, $stateParams, $q) {
+          return ToneExercisesManager.getExercises().then(function(exercises) {
+            var unresolved = $filter('filter')(exercises, function(exercise) {
+              unresolved = true;
+              if (exercise.correct === false || exercise.correct === true) {
+                unresolved = false;
+              }
+              return unresolved;
+            });
+            if(!unresolved || unresolved.length == 0){
+              alert("Sin ejercicios pendientes por resolver.");
+              console.log("Sin ejercicios pendientes por resolver");
+              return $q.reject();
+            }
+            return {
+              all: exercises,
+              unresolved: unresolved
+            };
+          });
+        }
+      }
+    })
+    .state('app.toneTracing', {
+      url: '/toneTracing',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/tracing/tone.tracing.html',
+          controller: 'ToneTracingCtrl'
+        }
+      },
+      resolve: {
+        exercises: function(ToneExercisesManager, $filter, $stateParams, $q) {
+          return ToneExercisesManager.getExercises().then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
       }
     })
     .state('app.tonePractice', {
@@ -159,6 +257,15 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         'menuContent': {
           templateUrl: 'modules/exercises/exercises.menu.html',
           controller: 'ExercisesMenuCtrl'
+        }
+      }
+    })
+    .state('app.tracing', {
+      url: '/tracing',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/tracing/tracing.menu.html',
+          controller: 'TracingMenuCtrl'
         }
       }
     });

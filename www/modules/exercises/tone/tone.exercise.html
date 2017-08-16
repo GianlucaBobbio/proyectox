@@ -1,8 +1,9 @@
-<ion-view view-title="Practicar Tono">
+<ion-view view-title="Ejercicio">
     <ion-content>
         <div class="exercise padding-20">
-            <div class="white-card">
-                <div class="white-card-title">Volumen Actual</div>
+            <div class="white-card" style="display: inline-block; width: 100px;">
+                <div class="white-card-title" style="text-align: center;">Volumen
+                    <br> Actual</div>
                 <div class="white-card-content">
                     <div class="amplitude-val">
                         <div class="amplitude-bar amplitude-higher" ng-style="{'height': (99 - minHigherAmp) * 4 + 'px'}"></div>
@@ -11,20 +12,26 @@
                         <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp * 100) * 4 + 'px'}">
                             <i class="arrow left"></i>
                         </div>
+                        <div ng-if="vm.showHelp" class="exercise-amplitude" ng-style="{'bottom': (actualExercise.toneFrom) * 4 + 'px', 'height': (actualExercise.toneTo - actualExercise.toneFrom) * 4 + 'px'}" ng-style="">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="white-card">
-                <div class="white-card-title">Volumen Promedio</div>
-                <div class="white-card-content">
-                    {{mediaAmplitude}}
+            <div style="display: inline-block;width: calc(100% - 105px)">
+                <div class="white-card" style="position: relative;">
+                    <div class="white-card-title">{{actualExercise.name}}</div>
+                    <div class="white-card-content tonePhrase">
+                        "{{actualExercise.phrase}}"
+                    </div>
+                    <div class="ayuda" ng-click="vm.showHelp = true;">?</div>
                 </div>
-            </div>
-            <div class="text-on-bg big-text" style="text-align: center;">
-                <span class="positive">RESULTADO: </span>
-                <br>
-                <br>
-                <span class="balanced" style="font-size: 30px;">CORRECTO!</span>
+                <div ng-if="correct !== null" class="text-on-bg big-text" style="text-align: center;">
+                    <span class="positive">RESULTADO: </span>
+                    <br>
+                    <br>
+                    <span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
+                    <span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
+                </div>
             </div>
         </div>
     </ion-content>

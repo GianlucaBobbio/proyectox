@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('ExercisesMenuCtrl', function($scope, ApiService, $filter, $stateParams, $state, SoundExercisesManager, $ionicPopup) {
+    .controller('ExercisesMenuCtrl', function($scope, ApiService, $filter, $stateParams, $state, SoundExercisesManager, $ionicPopup, ToneExercisesManager) {
         $scope.vm = {};
         $scope.selectExercise = function(exerciseType) {
             $scope.vm.selected = exerciseType;
@@ -20,19 +20,10 @@ angular.module('starter.controllers')
         $scope.startSoundExercises = function() {
             $state.go('app.soundCategories');
         }
-        $scope.resetSoundExercises = function() {
-            var confirmPopup = $ionicPopup.confirm({
-                title: 'Alerta',
-                template: 'Si continúa perderá todo su avance',
-                cancelText: 'Cancelar',
-                okText: 'Continuar'
-            }).then(function(res) {
-                if (res) {
-                    SoundExercisesManager.resetExercises();
-                }
-            });
-        }
         $scope.startTonePractice = function() {
             $state.go('app.tonePractice');
+        }
+        $scope.startToneExercise = function() {
+            $state.go('app.toneExercises');
         }
     });

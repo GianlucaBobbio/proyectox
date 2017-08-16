@@ -1,0 +1,24 @@
+<ion-view cache-view="false" view-title="Seguimiento Volúmen de Voz">
+	<ion-content class="padding">
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class=""></span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="exercises.data" chart-labels="exercises.labels" chart-options="options">
+			</canvas>
+			<div class="button button-shadow button-assertive button-block uppercase margin-top-20" ng-click="resetToneExercises()">
+                REINICIAR
+            </div>
+		</div>
+		<div ng-if="wrongs.length">
+			<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+				<span class="big-text">Ejercicios Incorrectos</span>
+			</div>
+			<div ng-repeat="exercise in wrongs" class="bigger-text">
+				- <b>{{exercise.name}}</b> {{exercise.toneFrom}}dB - {{exercise.toneTo}}dB
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

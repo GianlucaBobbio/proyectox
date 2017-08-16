@@ -63,7 +63,7 @@ angular.module('starter.controllers')
       $scope.playing = true;
     }
 
-    // $scope.playSound = function(exercise) {}
+    $scope.playSound = function(exercise) {}
 
     $scope.resolveExercise = function(selected) {
       console.log('start resolveExercise');

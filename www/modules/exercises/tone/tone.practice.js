@@ -42,17 +42,17 @@ angular.module('starter.controllers')
             $scope.vm.actualAmp = $scope.mediaAmplitude;
         }
 
-        // $scope.startRecord = function() {
-        //     mediaTimer = setInterval(function() {
-        //         var amp = Math.random();
-        //         $scope.vm.actualAmp = amp;
-        //         amplitudes.push(amp);
-        //         $scope.$digest();
-        //     }, 500);
-        // }
-        // $scope.stopRecord = function(argument) {
-        //     clearInterval(mediaTimer);
-        //     $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
-        //     $scope.vm.actualAmp = $scope.mediaAmplitude;
-        // }
+        $scope.startRecord = function() {
+            mediaTimer = setInterval(function() {
+                var amp = Math.random();
+                $scope.vm.actualAmp = amp;
+                amplitudes.push(amp);
+                $scope.$digest();
+            }, 500);
+        }
+        $scope.stopRecord = function(argument) {
+            clearInterval(mediaTimer);
+            $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
+            $scope.vm.actualAmp = $scope.mediaAmplitude;
+        }
     });

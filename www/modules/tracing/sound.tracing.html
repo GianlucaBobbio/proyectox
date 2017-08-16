@@ -1,0 +1,52 @@
+<ion-view cache-view="false" view-title="Seguimiento Discriminación Auditiva">
+	<ion-content class="padding">
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class="">ANIMALES</span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="category1.data" chart-labels="category1.labels" chart-options="options">
+			</canvas>
+		</div>
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class="">CUERPO HUMANO</span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="category2.data" chart-labels="category2.labels" chart-options="options">
+			</canvas>
+		</div>
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class="">NATURALEZA</span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="category3.data" chart-labels="category3.labels" chart-options="options">
+			</canvas>
+		</div>
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class="">SONIDOS DE LA CASA</span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="category4.data" chart-labels="category5.labels" chart-options="options">
+			</canvas>
+		</div>
+		<div class="chart-container">
+			<div class="text-center">
+				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+					<span class="">SONIDOS DE LA CIUDAD</span>
+				</div>
+			</div>
+			<canvas class="chart chart-pie" chart-data="category5.data" chart-labels="category5.labels" chart-options="options">
+			</canvas>
+		</div>
+		<div class="button button-shadow button-assertive button-block uppercase margin-top-20" ng-click="resetSoundExercises()">
+			REINICIAR
+		</div>
+	</ion-content>
+</ion-view>
