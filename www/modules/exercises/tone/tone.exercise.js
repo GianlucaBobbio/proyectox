@@ -27,46 +27,60 @@ angular.module('starter.controllers')
             $scope.vm.actualAmp = 0;
             $scope.mediaAmplitude = 0;
             $scope.vm.showHelp = false;
+            $scope.recording = false;
         }
 
         $scope.recordButton = function(argument) {
             if ($scope.recording) {
-                $scope.stopRecord();
+                $scope.recording = false;
+                //timeout necesario para que corra el digest
+                $timeout(function(){
+                    $scope.stopRecord();
+                }, 10);
             } else {
+                $scope.recording = true;
                 $scope.startRecord();
             }
-            $scope.recording = !$scope.recording;
         }
 
         $scope.startRecord = function() {
-            mediaRec = new Media("toneFree.mp3", function() {}, function(err) {});
+            mediaRec = new Media("toneExercise.mp3", function() {}, function(err) {});
             mediaRec.startRecord();
             amplitudes = [];
             mediaTimer = setInterval(function() {
                 mediaRec.getCurrentAmplitude(
                     function(amp) {
-                        amplitudes.push(amp);
+                        if (amp > 0) {
+                            amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                            $scope.vm.actualAmp = amp;
+                            if (amp > 30) {
+                                amplitudes.push(amp);
+                            }
+                        }
+                        $scope.$digest();
                     },
                     function(e) {
-                        console.log("Error getting amp=" + e);
+                        alert("Error getting amp=" + e);
                     }
                 );
-            }, 500);
+            }, 10);
         }
 
         $scope.stopRecord = function() {
             clearInterval(mediaTimer);
             mediaRec.stopRecord();
             $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
+            $scope.vm.actualAmp = $scope.mediaAmplitude;
             $scope.finishExercise();
         }
 
         $scope.finishExercise = function() {
-            if ($scope.mediaAmplitude * 100 > $scope.actualExercise.toneFrom && $scope.mediaAmplitude * 100 <= $scope.actualExercise.toneTo) {
-                console.log('Correcto:' + $scope.mediaAmplitude * 100 + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
+            $scope.vm.showHelp = true;
+            if ($scope.mediaAmplitude > $scope.actualExercise.toneFrom && $scope.mediaAmplitude <= $scope.actualExercise.toneTo) {
+                console.log('Correcto:' + $scope.mediaAmplitude + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
                 $scope.correct = true;
             } else {
-                console.log('Incorrecto:' + $scope.mediaAmplitude * 100 + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
+                console.log('Incorrecto:' + $scope.mediaAmplitude + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
                 $scope.correct = false;
             }
             $scope.setResult();
@@ -96,18 +110,18 @@ angular.module('starter.controllers')
             });
         }
 
-        $scope.startRecord = function() {
-            mediaTimer = setInterval(function() {
-                var amp = Math.random();
-                $scope.vm.actualAmp = amp;
-                amplitudes.push(amp);
-                $scope.$digest();
-            }, 500);
-        }
-        $scope.stopRecord = function(argument) {
-            clearInterval(mediaTimer);
-            $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
-            $scope.vm.actualAmp = $scope.mediaAmplitude;
-            $scope.finishExercise();
-        }
+        // $scope.startRecord = function() {
+        //     mediaTimer = setInterval(function() {
+        //         var amp = Math.random();
+        //         $scope.vm.actualAmp = amp;
+        //         amplitudes.push(amp);
+        //         $scope.$digest();
+        //     }, 500);
+        // }
+        // $scope.stopRecord = function(argument) {
+        //     clearInterval(mediaTimer);
+        //     $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
+        //     $scope.vm.actualAmp = $scope.mediaAmplitude;
+        //     $scope.finishExercise();
+        // }
     });

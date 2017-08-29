@@ -76,34 +76,6 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       }
     })
-    // .state('app.toneExercises', {
-    //     url: '/exercises/tone',
-    //     views: {
-    //         'menuContent': {
-    //             templateUrl: 'modules/exercises/tone.exercise.html',
-    //             controller: 'ToneExerciseCtrl'
-    //         }
-    //     },
-    //     resolve: {
-    //         resolvedExercises: function(ApiService, $filter, $stateParams) {
-    //             var storage = "actualToneExercise"
-    //             return ApiService.getToneExercises().then(function(exercises) {
-    //                 var actualStoragedExercise = localStorage.getItem(storage);
-    //                 var actualExercise = null;
-    //                 if (actualStoragedExercise && $filter('filter')(exercises, { id: parseInt(actualStoragedExercise, 10) }, true).length) {
-    //                     actualExercise = parseInt(actualStoragedExercise, 10);
-    //                 } else {
-    //                     actualExercise = exercises[0].id;
-    //                     localStorage.setItem(storage, exercises[0].id);
-    //                 }
-    //                 return {
-    //                     exercises: exercises,
-    //                     actualExercise: actualExercise
-    //                 };
-    //             });
-    //         }
-    //     }
-    // })
     .state('app.soundExercises', {
       url: '/exercisesSound/:category',
       views: {
@@ -202,6 +174,37 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       resolve: {
         exercises: function(ToneExercisesManager, $filter, $stateParams, $q) {
           return ToneExercisesManager.getExercises().then(function(exercises) {
+            var unresolved = $filter('filter')(exercises, function(exercise) {
+              unresolved = true;
+              if (exercise.correct === false || exercise.correct === true) {
+                unresolved = false;
+              }
+              return unresolved;
+            });
+            if(!unresolved || unresolved.length == 0){
+              alert("Sin ejercicios pendientes por resolver.");
+              console.log("Sin ejercicios pendientes por resolver");
+              return $q.reject();
+            }
+            return {
+              all: exercises,
+              unresolved: unresolved
+            };
+          });
+        }
+      }
+    })
+    .state('app.rhythmExercises', {
+      url: '/rhythmExercises',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/exercises/rhythm/rhythm.exercise.html',
+          controller: 'RhythmExerciseCtrl'
+        }
+      },
+      resolve: {
+        exercises: function(RhythmExercisesManager, $filter, $stateParams, $q) {
+          return RhythmExercisesManager.getExercises().then(function(exercises) {
             var unresolved = $filter('filter')(exercises, function(exercise) {
               unresolved = true;
               if (exercise.correct === false || exercise.correct === true) {

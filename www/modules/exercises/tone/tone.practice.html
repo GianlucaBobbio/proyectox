@@ -9,7 +9,7 @@
                         <div class="amplitude-bar amplitude-higher" ng-style="{'height': (99 - minHigherAmp) * 4 + 'px'}"></div>
                         <div class="amplitude-bar amplitude-med" ng-style="{'height': (minHigherAmp - maxLowerAmp) * 4 + 'px'}"></div>
                         <div class="amplitude-bar amplitude-lower" ng-style="{'height': maxLowerAmp * 4 + 'px'}"></div>
-                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp * 100) * 4 + 'px'}">
+                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp) * 4 + 'px'}">
                             <i class="arrow left"></i>
                         </div>
                         <div ng-if="vm.showHelp" class="exercise-amplitude" ng-style="{'bottom': (actualExercise.toneFrom) * 4 + 'px', 'height': (actualExercise.toneTo - actualExercise.toneFrom) * 4 + 'px'}" ng-style="">
@@ -19,11 +19,15 @@
             </div>
             <div style="display: inline-block;width: calc(100% - 105px)">
                 <div class="white-card" style="position: relative;">
-                    <div class="white-card-title">Grabar para practicar y conocer tu volúmen promedio</div>
+                    <div class="white-card-title">Grábate para practicar y conocer tu volúmen promedio</div>
                     <div class="white-card-content"></div>
                 </div>
                 <div ng-if="mediaAmplitude" class="text-on-bg big-text" style="text-align: center;">
-                    <span class="positive">VOLUMEN PROMEDIO: </span>
+                    <span class="positive">
+                        VOLUMEN
+                        <span ng-show="recording"> REGISTRADO </span>
+                        <span ng-show="!recording"> PROMEDIO </span>
+                        : </span>
                     <br>
                     <span>{{mediaAmplitude}}</span>
                 </div>

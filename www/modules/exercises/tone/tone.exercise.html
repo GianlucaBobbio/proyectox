@@ -1,4 +1,4 @@
-<ion-view view-title="Ejercicio">
+<ion-view view-title="Ejercicio" style="padding-bottom: 150px;">
     <ion-content>
         <div class="exercise padding-20">
             <div class="white-card" style="display: inline-block; width: 100px;">
@@ -9,10 +9,12 @@
                         <div class="amplitude-bar amplitude-higher" ng-style="{'height': (99 - minHigherAmp) * 4 + 'px'}"></div>
                         <div class="amplitude-bar amplitude-med" ng-style="{'height': (minHigherAmp - maxLowerAmp) * 4 + 'px'}"></div>
                         <div class="amplitude-bar amplitude-lower" ng-style="{'height': maxLowerAmp * 4 + 'px'}"></div>
-                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp * 100) * 4 + 'px'}">
+                        <div class="amplitude-mark" ng-style="{'bottom': (vm.actualAmp) * 4 + 'px'}">
                             <i class="arrow left"></i>
                         </div>
-                        <div ng-if="vm.showHelp" class="exercise-amplitude" ng-style="{'bottom': (actualExercise.toneFrom) * 4 + 'px', 'height': (actualExercise.toneTo - actualExercise.toneFrom) * 4 + 'px'}" ng-style="">
+                        <div ng-if="vm.showHelp" class="exercise-amplitude" ng-style="{'bottom': (actualExercise.toneFrom) * 4 + 'px', 'height': (actualExercise.toneTo - actualExercise.toneFrom) * 4 + 'px'}" ng-class="{'correctMark': correct === true, 'incorrectMark': correct === false}">
+                            <span ng-show="correct" class="balanced toneResult" style="">CORRECTO!</span>
+                            <span ng-show="correct === false" class="assertive toneResult" style="">INCORRECTO</span>
                         </div>
                     </div>
                 </div>
@@ -23,14 +25,9 @@
                     <div class="white-card-content tonePhrase">
                         "{{actualExercise.phrase}}"
                     </div>
-                    <div class="ayuda" ng-click="vm.showHelp = true;">?</div>
-                </div>
-                <div ng-if="correct !== null" class="text-on-bg big-text" style="text-align: center;">
-                    <span class="positive">RESULTADO: </span>
-                    <br>
-                    <br>
-                    <span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
-                    <span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
+                    <div class="bg-cover toneImage" ng-style="{'background-image': 'url(db/images/' + actualExercise.image + ')'}">
+                    </div>
+                    <div class="round button-shadow positive-bg ayuda" ng-click="vm.showHelp = true;">?</div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('TonePracticeCtrl', function($scope, ToneExercisesManager) {
+    .controller('TonePracticeCtrl', function($scope, ToneExercisesManager, $timeout) {
         var mediaRec, mediaTimer = null;
         var amplitudes = [];
         $scope.recording = false;
@@ -10,7 +10,9 @@ angular.module('starter.controllers')
 
         $scope.recordButton = function(argument) {
             if ($scope.recording) {
-                $scope.stopRecord();
+                $timeout(function() {
+                    $scope.stopRecord();
+                }, 10);
             } else {
                 $scope.startRecord();
             }
@@ -24,15 +26,21 @@ angular.module('starter.controllers')
             mediaTimer = setInterval(function() {
                 mediaRec.getCurrentAmplitude(
                     function(amp) {
-                        $scope.vm.actualAmp = amp;
-                        amplitudes.push(amp);
+                        if (amp > 0) {
+                            amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                            $scope.mediaAmplitude = amp;
+                            $scope.vm.actualAmp = amp;
+                            if (amp > 30) {
+                                amplitudes.push(amp);
+                            }
+                        }
                         $scope.$digest();
                     },
                     function(e) {
                         console.log("Error getting amp=" + e);
                     }
                 );
-            }, 500);
+            }, 10);
         }
 
         $scope.stopRecord = function() {
@@ -42,17 +50,17 @@ angular.module('starter.controllers')
             $scope.vm.actualAmp = $scope.mediaAmplitude;
         }
 
-        $scope.startRecord = function() {
-            mediaTimer = setInterval(function() {
-                var amp = Math.random();
-                $scope.vm.actualAmp = amp;
-                amplitudes.push(amp);
-                $scope.$digest();
-            }, 500);
-        }
-        $scope.stopRecord = function(argument) {
-            clearInterval(mediaTimer);
-            $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
-            $scope.vm.actualAmp = $scope.mediaAmplitude;
-        }
+        // $scope.startRecord = function() {
+        //     mediaTimer = setInterval(function() {
+        //         var amp = Math.random();
+        //         $scope.vm.actualAmp = amp;
+        //         amplitudes.push(amp);
+        //         $scope.$digest();
+        //     }, 500);
+        // }
+        // $scope.stopRecord = function(argument) {
+        //     clearInterval(mediaTimer);
+        //     $scope.mediaAmplitude = (amplitudes.reduce((a, b) => a + b, 0)) / amplitudes.length;
+        //     $scope.vm.actualAmp = $scope.mediaAmplitude;
+        // }
     });

@@ -1,0 +1,45 @@
+[{
+	"id":1,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Mañana ",
+		"time": 833
+	},{
+		"word": "tengo ",
+		"time": 500
+	},{
+		"word": "que ",
+		"time": 84
+	},{
+		"word": "ir ",
+		"time": 83
+	},{
+		"word": "al ",
+		"time": 83
+	},{
+		"word": "fonoaudiólogo",
+		"time": 1217
+	},{
+		"word": ", ",
+		"time": 200
+	},{
+		"word": "tendría ",
+		"time": 500
+	},{
+		"word": "que ",
+		"time": 100
+	},{
+		"word": "practicar ",
+		"time": 600
+	},{
+		"word": "con ",
+		"time": 150
+	},{
+		"word": "mi ",
+		"time": 150
+	},{
+		"word": "mamá ",
+		"time": 500
+	}],
+	"situation": 1
+}]

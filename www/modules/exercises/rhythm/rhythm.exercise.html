@@ -1,0 +1,32 @@
+<ion-view view-title="Ejercicio" style="padding-bottom: 150px;">
+	<ion-content>
+		<div class="exercise padding-20">
+			<div class="white-card">
+				<div class="white-card-title">
+					{{actualExercise.description}}
+				</div>
+				<div class="white-card-content tonePhrase">
+					<span ng-repeat="wordObject in actualExercise.phrase" ng-class="{'selected-word': wordObject.highlighted}">{{wordObject.word}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="button button-shadow button-positive red-background button-block uppercase" ng-click="karaoke()">
+			Karaoke
+		</div>
+		<div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
+			<span class="positive">RESULTADO: </span>
+			<br>
+			<br>
+			<span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
+			<span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
+		</div>
+	</ion-content>
+	<div ng-show="recording" class="recording">
+		<div class="absolute-center light recording-text blink_me">GRABANDO</div>
+	</div>
+	<div class="bottom-center-bar" style="z-index: 6;">
+		<div class="round big-button inline button-shadow" ng-click="recordButton()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
+			<i class="ion-android-microphone" ng-class="{'positive': recording, 'light': !recording}"></i>
+		</div>
+	</div>
+</ion-view>

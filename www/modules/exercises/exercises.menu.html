@@ -20,11 +20,14 @@
                     Comenzar
                 </div>
             </div>
-            <div ng-disabled="true" class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(3)">
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(3)">
                 Ritmo
             </div>
             <div class="exercise-description" ng-show="vm.selected == 3">
                 <p>Gradúa la cadencia de tus palabras.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startRhythmExercises()">
+                    Comenzar
+                </div>
             </div>
             <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(4)">
                 Discrimicación Auditiva *
