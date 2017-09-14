@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-	.controller('RhythmExerciseCtrl', function($scope, ApiService, $filter, exercises, RhythmExercisesManager, $timeout, $state, $interval) {
+	.controller('RhythmExerciseCtrl', function($scope, ApiService, $filter, exercises, ToneExercisesManager, $timeout, $state, $interval) {
 		var mediaRec, mediaTimer = null;
 		$scope.position = 0;
 		$scope.recording = false;
@@ -47,33 +47,6 @@ angular.module('starter.controllers')
 			$scope.finishExercise();
 		}
 
-		$scope.karaoke = function() {
-			$scope.vm.hideMic = true;
-			$timeout(function() {
-				$scope.$digest();
-			}, 1);
-			var wait = 0;
-			angular.forEach($scope.actualExercise.phrase, function(wordObject, index) {
-				console.log(wordObject.word);
-				$timeout(function() {
-					angular.forEach($scope.actualExercise.phrase, function(wordObject) { wordObject.highlighted = false; });
-					wordObject.highlighted = true;
-				}, wait);
-				wait = wait + wordObject.time;
-				if (index == $scope.actualExercise.phrase.length - 1) {
-					$timeout(function() {
-						angular.forEach($scope.actualExercise.phrase, function(wordObject) { wordObject.highlighted = false; });
-						$scope.vm.hideMic = false;
-					}, wait);
-				}
-			});
-			angular.forEach($scope.actualExercise.phrase, function(wordObject) { wordObject.highlighted = false; });
-			$timeout(function() {
-				$scope.$digest();
-			}, 1);
-			console.log('fin');
-		}
-
 		function wait(ms) {
 			var start = Date.now(),
 				now = start;
@@ -99,7 +72,7 @@ angular.module('starter.controllers')
 
 		$scope.setResult = function() {
 			console.log('start setResult');
-			RhythmExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
+			ToneExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
 			$scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
 				return exercise.id != $scope.actualExercise.id
 			});
@@ -115,9 +88,7 @@ angular.module('starter.controllers')
 				}
 				$scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
 				loadExercise();
-				// $timeout(function() {
-				// 	$scope.$apply();
-				// }, 10);
+				$scope.$apply();
 			} else {
 				console.log("$scope.unresolvedExercises.length == 0");
 				alert("Ha finalizado todos los ejercicios");

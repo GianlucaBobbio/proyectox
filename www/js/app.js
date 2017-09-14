@@ -225,6 +225,26 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       }
     })
+    .state('app.rhythmTracing', {
+      url: '/rhythmTracing',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/tracing/rhythm.tracing.html',
+          controller: 'RhythmTracingCtrl'
+        }
+      },
+      resolve: {
+        exercises: function(RhythmExercisesManager, $filter, $stateParams, $q) {
+          return RhythmExercisesManager.getExercises().then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+      }
+    })
     .state('app.toneTracing', {
       url: '/toneTracing',
       views: {

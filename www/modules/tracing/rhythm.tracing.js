@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-	.controller('ToneTracingCtrl', function($scope, exercises, $filter, $ionicPopup, ToneExercisesManager, $state) {
+	.controller('RhythmTracingCtrl', function($scope, exercises, $filter, $ionicPopup, RhythmExercisesManager, $state) {
 		$scope.vm = {};
 		$scope.options = {
 			legend: {
@@ -12,7 +12,7 @@ angular.module('starter.controllers')
 			labels: ["Correctos", "Sin realizar", "Incorrectos"],
 			data: [exercises.corrects.length, exercises.unresolveds.length, exercises.wrongs.length]
 		}
-		$scope.resetToneExercises = function() {
+		$scope.resetRhythmExercises = function() {
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Alerta',
                 template: 'Si continúa perderá todo su avance',
@@ -20,7 +20,7 @@ angular.module('starter.controllers')
                 okText: 'Continuar'
             }).then(function(res) {
                 if (res) {
-                    ToneExercisesManager.resetExercises();
+                    RhythmExercisesManager.resetExercises();
                     alert('Módulo reiniciado correctamente');
                     $state.go('app.tracing');
                 }

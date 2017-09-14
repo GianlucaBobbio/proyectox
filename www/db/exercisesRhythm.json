@@ -2,44 +2,856 @@
 	"id":1,
 	"description":"En el parque.",
 	"phrase":[{
-		"word": "Mañana ",
-		"time": 833
+		"word": "Mi ",
+		"time": 320
 	},{
-		"word": "tengo ",
-		"time": 500
+		"word": "hermanita ",
+		"time": 750
+	},{
+		"word": "no ",
+		"time": 150
+	},{
+		"word": "sabe ",
+		"time": 290
+	},{
+		"word": "andar ",
+		"time": 440
+	},{
+		"word": "sola ",
+		"time": 240
+	},{
+		"word": "en ",
+		"time": 150
+	},{
+		"word": "bicicleta ",
+		"time": 810
+	},{
+		"word": "y ",
+		"time": 100
+	},{
+		"word": "necesita ",
+		"time": 660
 	},{
 		"word": "que ",
-		"time": 84
+		"time": 160
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "ayuden ",
+		"time": 420
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "mantener ",
+		"time": 460
+	},{
+		"word": "el ",
+		"time": 100
+	},{
+		"word": "equilibrio",
+		"time": 860
+	},{
+		"word": ". ",
+		"time": 480
+	},{
+		"word": "Mañana ",
+		"time": 500
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "mañana ",
+		"time": 500
+	},{
+		"word": "vamos ",
+		"time": 500
+	},{
+		"word": "a ",
+		"time": 100
 	},{
 		"word": "ir ",
-		"time": 83
+		"time": 100
 	},{
-		"word": "al ",
-		"time": 83
+		"word": "a ",
+		"time": 100
 	},{
-		"word": "fonoaudiólogo",
-		"time": 1217
+		"word": "practicar ",
+		"time": 640
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "plaza.",
+		"time": 480
+	}]
+},{
+	"id":2,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Los ",
+		"time": 240
+	},{
+		"word": "pulpos ",
+		"time": 480
+	},{
+		"word": "sólo ",
+		"time": 280
+	},{
+		"word": "tienen ",
+		"time": 400
+	},{
+		"word": "cuatro ",
+		"time": 400
+	},{
+		"word": "patas ",
+		"time": 480
+	},{
+		"word": "para ",
+		"time": 440
+	},{
+		"word": "poder ",
+		"time": 360
+	},{
+		"word": "moverse ",
+		"time": 480
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "agarrar ",
+		"time": 560
+	},{
+		"word": "cosas",
+		"time": 540
+	},{
+		"word": ". ",
+		"time": 440
+	},{
+		"word": "Viven ",
+		"time": 380
+	},{
+		"word": "en ",
+		"time": 60
+	},{
+		"word": "el ",
+		"time": 60
+	},{
+		"word": "fondo ",
+		"time": 580
+	},{
+		"word": "del ",
+		"time": 100
+	},{
+		"word": "mar",
+		"time": 340
 	},{
 		"word": ", ",
+		"time": 240
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "son ",
 		"time": 200
 	},{
-		"word": "tendría ",
-		"time": 500
+		"word": "muy ",
+		"time": 220
+	},{
+		"word": "buenos ",
+		"time": 320
+	},{
+		"word": "para ",
+		"time": 200
+	},{
+		"word": "comer.",
+		"time": 560
+	}]
+},{
+	"id":3,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "El ",
+		"time": 200
+	},{
+		"word": "otro ",
+		"time": 400
+	},{
+		"word": "día ",
+		"time": 240
+	},{
+		"word": "vino ",
+		"time": 320
+	},{
+		"word": "Micaela ",
+		"time": 560
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "mi ",
+		"time": 140
+	},{
+		"word": "casa",
+		"time": 480
+	},{
+		"word": ". ",
+		"time": 400
+	},{
+		"word": "Le ",
+		"time": 120
+	},{
+		"word": "tiene ",
+		"time": 360
+	},{
+		"word": "miedo ",
+		"time": 280
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "mi ",
+		"time": 100
+	},{
+		"word": "perro ",
+		"time": 400
+	},{
+		"word": "Tommy",
+		"time": 320
+	},{
+		"word": ", ",
+		"time": 400
+	},{
+		"word": "pero ",
+		"time": 180
+	},{
+		"word": "él ",
+		"time": 100
+	},{
+		"word": "siempre ",
+		"time": 440
+	},{
+		"word": "que ",
+		"time": 180
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "ve ",
+		"time": 160
+	},{
+		"word": "mueve ",
+		"time": 440
+	},{
+		"word": "la ",
+		"time": 160
+	},{
+		"word": "cola ",
+		"time": 400
+	},{
+		"word": "porque ",
+		"time": 300
+	},{
+		"word": "quiere ",
+		"time": 300
+	},{
+		"word": "jugar ",
+		"time": 400
+	},{
+		"word": "con ",
+		"time": 200
+	},{
+		"word": "ella.",
+		"time": 320
+	}]
+},{
+	"id":4,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "El ",
+		"time": 100
+	},{
+		"word": "iceberg ",
+		"time": 540
+	},{
+		"word": "está ",
+		"time": 320
+	},{
+		"word": "formado ",
+		"time": 560
+	},{
+		"word": "por ",
+		"time": 240
+	},{
+		"word": "rocas ",
+		"time": 460
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "arena ",
+		"time": 440
 	},{
 		"word": "que ",
 		"time": 100
 	},{
-		"word": "practicar ",
+		"word": "cayeron ",
+		"time": 540
+	},{
+		"word": "al ",
+		"time": 100
+	},{
+		"word": "mar",
+		"time": 420
+	},{
+		"word": ". ",
+		"time": 440
+	},{
+		"word": "Los ",
+		"time": 200
+	},{
+		"word": "bloques ",
+		"time": 320
+	},{
+		"word": "de ",
+		"time": 120
+	},{
+		"word": "hielo ",
+		"time": 400
+	},{
+		"word": "que ",
+		"time": 200
+	},{
+		"word": "flotan ",
+		"time": 460
+	},{
+		"word": "en ",
+		"time": 130
+	},{
+		"word": "el ",
+		"time": 130
+	},{
+		"word": "mar",
+		"time": 320
+	},{
+		"word": ", ",
+		"time": 280
+	},{
+		"word": "son ",
+		"time": 200
+	},{
+		"word": "muy ",
+		"time": 160
+	},{
+		"word": "peligrosos ",
 		"time": 600
 	},{
-		"word": "con ",
-		"time": 150
+		"word": "para ",
+		"time": 280
+	},{
+		"word": "los ",
+		"time": 200
+	},{
+		"word": "barcos.",
+		"time": 680
+	}]
+},{
+	"id":5,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Esta ",
+		"time": 440
+	},{
+		"word": "semana ",
+		"time": 640
+	},{
+		"word": "están ",
+		"time": 380
+	},{
+		"word": "remodelando ",
+		"time": 620
 	},{
 		"word": "mi ",
-		"time": 150
+		"time": 200
 	},{
-		"word": "mamá ",
+		"word": "casa",
+		"time": 440
+	},{
+		"word": ". ",
+		"time": 360
+	},{
+		"word": "Los ",
+		"time": 200
+	},{
+		"word": "albañiles ",
+		"time": 600
+	},{
+		"word": "están ",
+		"time": 400
+	},{
+		"word": "arreglando ",
+		"time": 440
+	},{
+		"word": "los ",
+		"time": 200
+	},{
+		"word": "agujeros ",
 		"time": 500
-	}],
-	"situation": 1
+	},{
+		"word": "del ",
+		"time": 180
+	},{
+		"word": "techo",
+		"time": 480
+	},{
+		"word": ", ",
+		"time": 280
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "los ",
+		"time": 200
+	},{
+		"word": "pintores ",
+		"time": 620
+	},{
+		"word": "están ",
+		"time": 400
+	},{
+		"word": "pintando ",
+		"time": 440
+	},{
+		"word": "mi ",
+		"time": 200
+	},{
+		"word": "habitación.",
+		"time": 720
+	}]
+},{
+	"id":6,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Me ",
+		"time": 200
+	},{
+		"word": "encanta ",
+		"time": 440
+	},{
+		"word": "saltar ",
+		"time": 640
+	},{
+		"word": "la ",
+		"time": 120
+	},{
+		"word": "cuerda ",
+		"time": 400
+	},{
+		"word": "en ",
+		"time": 120
+	},{
+		"word": "el ",
+		"time": 120
+	},{
+		"word": "recreo",
+		"time": 440
+	},{
+		"word": ", ",
+		"time": 460
+	},{
+		"word": "pero ",
+		"time": 240
+	},{
+		"word": "tengo ",
+		"time": 300
+	},{
+		"word": "ganas ",
+		"time": 300
+	},{
+		"word": "de ",
+		"time": 60
+	},{
+		"word": "hacer ",
+		"time": 200
+	},{
+		"word": "algo ",
+		"time": 300
+	},{
+		"word": "más ",
+		"time": 200
+	},{
+		"word": "divertido",
+		"time": 640
+	},{
+		"word": ". ",
+		"time": 480
+	},{
+		"word": "¿Tenés ",
+		"time": 320
+	},{
+		"word": "ganas ",
+		"time": 260
+	},{
+		"word": "de ",
+		"time": 60
+	},{
+		"word": "jugar ",
+		"time": 300
+	},{
+		"word": "al ",
+		"time": 100
+	},{
+		"word": "básquet ",
+		"time": 320
+	},{
+		"word": "en ",
+		"time": 140
+	},{
+		"word": "el ",
+		"time": 140
+	},{
+		"word": "próximo ",
+		"time": 600
+	},{
+		"word": "recreo?",
+		"time": 650
+	}]
+},{
+	"id":7,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Ayer ",
+		"time": 400
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "noche ",
+		"time": 440
+	},{
+		"word": "nos ",
+		"time": 200
+	},{
+		"word": "quedamos ",
+		"time": 480
+	},{
+		"word": "despiertos ",
+		"time": 680
+	},{
+		"word": "con ",
+		"time": 200
+	},{
+		"word": "mi ",
+		"time": 160
+	},{
+		"word": "papá ",
+		"time": 440
+	},{
+		"word": "y ",
+		"time": 100
+	},{
+		"word": "mi ",
+		"time": 160
+	},{
+		"word": "hermanito ",
+		"time": 780
+	},{
+		"word": "mirando ",
+		"time": 560
+	},{
+		"word": "los ",
+		"time": 160
+	},{
+		"word": "dibujitos ",
+		"time": 560
+	},{
+		"word": "hasta ",
+		"time": 380
+	},{
+		"word": "tarde",
+		"time": 380
+	},{
+		"word": ". ",
+		"time": 360
+	},{
+		"word": "¡Estuvo ",
+		"time": 480
+	},{
+		"word": "buenísimo!",
+		"time":840
+	}]
+},{
+	"id":8,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Mañana ",
+		"time": 480
+	},{
+		"word": "tenemos ",
+		"time": 520
+	},{
+		"word": "que ",
+		"time": 160
+	},{
+		"word": "ir ",
+		"time": 120
+	},{
+		"word": "al ",
+		"time": 120
+	},{
+		"word": "colegio ",
+		"time": 700
+	},{
+		"word": "porque ",
+		"time": 300
+	},{
+		"word": "tenemos ",
+		"time": 500
+	},{
+		"word": "la ",
+		"time": 100
+	},{
+		"word": "prueba ",
+		"time": 400
+	},{
+		"word": "de ",
+		"time": 100
+	},{
+		"word": "lengua",
+		"time": 500
+	},{
+		"word": ", ",
+		"time": 300
+	},{
+		"word": "pero ",
+		"time": 200
+	},{
+		"word": "no ",
+		"time": 100
+	},{
+		"word": "pude ",
+		"time": 250
+	},{
+		"word": "estudiar ",
+		"time": 450
+	},{
+		"word": "mucho",
+		"time": 400
+	},{
+		"word": ". ",
+		"time": 420
+	},{
+		"word": "¿Me ",
+		"time": 200
+	},{
+		"word": "podrías ",
+		"time": 240
+	},{
+		"word": "ayudar ",
+		"time": 420
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "estudar ",
+		"time": 400
+	},{
+		"word": "por ",
+		"time": 200
+	},{
+		"word": "la ",
+		"time": 200
+	},{
+		"word": "tarde?",
+		"time": 520
+	}]
+},{
+	"id":9,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "La ",
+		"time": 200
+	},{
+		"word": "maestra ",
+		"time": 560
+	},{
+		"word": "de ",
+		"time": 100
+	},{
+		"word": "inglés ",
+		"time": 400
+	},{
+		"word": "nos ",
+		"time": 200
+	},{
+		"word": "dio ",
+		"time": 200
+	},{
+		"word": "un ",
+		"time": 160
+	},{
+		"word": "montón ",
+		"time": 400
+	},{
+		"word": "de ",
+		"time": 120
+	},{
+		"word": "tarea ",
+		"time": 400
+	},{
+		"word": "para ",
+		"time": 240
+	},{
+		"word": "hacer ",
+		"time": 400
+	},{
+		"word": "y ",
+		"time": 100
+	},{
+		"word": "tenemos ",
+		"time": 560
+	},{
+		"word": "poco ",
+		"time": 240
+	},{
+		"word": "tiempo",
+		"time": 480
+	},{
+		"word": ". ",
+		"time": 400
+	},{
+		"word": "Tendría ",
+		"time": 480
+	},{
+		"word": "que ",
+		"time": 160
+	},{
+		"word": "conseguir ",
+		"time": 640
+	},{
+		"word": "un ",
+		"time": 100
+	},{
+		"word": "profesor ",
+		"time": 620
+	},{
+		"word": "particular ",
+		"time": 680
+	},{
+		"word": "para ",
+		"time": 360
+	},{
+		"word": "que ",
+		"time": 160
+	},{
+		"word": "me ",
+		"time": 100
+	},{
+		"word": "ayude",
+		"time": 620
+	}]
+},{
+	"id":10,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "La ",
+		"time": 200
+	},{
+		"word": "semana ",
+		"time": 480
+	},{
+		"word": "que ",
+		"time": 160
+	},{
+		"word": "viene ",
+		"time": 640
+	},{
+		"word": "podríamos ",
+		"time": 640
+	},{
+		"word": "ir ",
+		"time": 140
+	},{
+		"word": "al ",
+		"time": 140
+	},{
+		"word": "cine ",
+		"time": 380
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "ver ",
+		"time": 180
+	},{
+		"word": "la ",
+		"time": 140
+	},{
+		"word": "nueva ",
+		"time": 320
+	},{
+		"word": "película ",
+		"time": 560
+	},{
+		"word": "que ",
+		"time": 160
+	},{
+		"word": "salió ",
+		"time": 360
+	},{
+		"word": "ayer ",
+		"time": 240
+	},{
+		"word": "de ",
+		"time": 100
+	},{
+		"word": "batman",
+		"time": 500
+	},{
+		"word": ". ",
+		"time": 400
+	},{
+		"word": "Si ",
+		"time": 160
+	},{
+		"word": "quieren ",
+		"time": 320
+	},{
+		"word": "le ",
+		"time": 100
+	},{
+		"word": "pregunto ",
+		"time": 540
+	},{
+		"word": "a ",
+		"time": 100
+	},{
+		"word": "mi ",
+		"time": 100
+	},{
+		"word": "papá ",
+		"time": 320
+	},{
+		"word": "si ",
+		"time": 100
+	},{
+		"word": "nos ",
+		"time": 180
+	},{
+		"word": "puede ",
+		"time": 400
+	},{
+		"word": "llevar.",
+		"time": 400
+	}]
 }]

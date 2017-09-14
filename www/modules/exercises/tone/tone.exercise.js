@@ -4,6 +4,9 @@ angular.module('starter.controllers')
 
         var mediaRec, mediaTimer = null;
         var amplitudes = [];
+        const Pref = 0.0002; // 210-5  
+        const C = 50000; // Factor de Conversión
+        const noiseLevel = 30; // Nivel de sonido ambiente en decibeles. Este valor varía de acuerdo al ejercicio.
         $scope.recording = false;
         $scope.vm = {};
         $scope.vm.actualAmp = 0;
@@ -34,7 +37,7 @@ angular.module('starter.controllers')
             if ($scope.recording) {
                 $scope.recording = false;
                 //timeout necesario para que corra el digest
-                $timeout(function(){
+                $timeout(function() {
                     $scope.stopRecord();
                 }, 10);
             } else {
@@ -51,12 +54,21 @@ angular.module('starter.controllers')
                 mediaRec.getCurrentAmplitude(
                     function(amp) {
                         if (amp > 0) {
-                            amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
-                            $scope.vm.actualAmp = amp;
-                            if (amp > 30) {
-                                amplitudes.push(amp);
+                            amp = amp * 32768;
+                            var P = amp / C;
+                            var ampDb = 20 * Math.log10(P / Pref);
+                            // Sólo si la amplitud es mayor al nivel mínimo del sonido ambiente registramos el valor, caso contrario no podemos estar asegurando grabar un registro de la voz de la persona.
+                            if (ampDb > noiseLevel) {
+                                amplitudes.push(ampDb);
                             }
                         }
+                        // if (amp > 0) {
+                        //     amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                        //     $scope.vm.actualAmp = amp;
+                        //     if (amp > 30) {
+                        //         amplitudes.push(amp);
+                        //     }
+                        // }
                         $scope.$digest();
                     },
                     function(e) {

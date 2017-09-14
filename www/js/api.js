@@ -34,4 +34,10 @@ angular.module('starter')
                 return $filter('filter')(exercises.data, { category: parseInt(category, 10) }, true);
             });   
         }
+        this.sendTracing = function(tracing){
+            return $http.post('https://hooks.zapier.com/hooks/catch/2502600/r9t9c7/', tracing).then(function(data){
+                console.log(data);
+                return data;
+            })
+        }
     });

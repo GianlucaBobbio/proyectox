@@ -3,8 +3,9 @@ angular.module('starter.controllers')
 		$scope.vm = {};
 		$scope.options = {
 			legend: {
-				display: true
-			}
+				display: true,
+				labels: { fontSize: 16 }
+			},
 		}
 		$scope.category1 = {
 			labels: ["Correctos", "Sin realizar", "Incorrectos"],
