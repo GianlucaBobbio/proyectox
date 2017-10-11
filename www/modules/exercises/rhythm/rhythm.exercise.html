@@ -2,11 +2,11 @@
 	<ion-content>
 		<div class="exercise padding-20">
 			<div class="white-card">
-				<div class="white-card-title">
+				<!-- <div class="white-card-title">
 					{{actualExercise.description}}
-				</div>
+				</div> -->
 				<div class="white-card-content tonePhrase">
-					<span ng-repeat="wordObject in actualExercise.phrase" ng-class="{'selected-word': wordObject.highlighted}">{{wordObject.word}}</span>
+					<span ng-repeat="wordObject in actualExercise.phrase" ng-class="{'positive': wordObject.highlighted}">{{wordObject.word}}</span>
 				</div>
 			</div>
 		</div>

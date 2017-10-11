@@ -1,0 +1,33 @@
+<ion-view view-title="Ejercicio" cache-view="false">
+    <ion-content>
+        <div class="exercise padding-20">
+            <div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+                <span class="">RECONOCER LAS PALABRAS</span>
+            </div>
+            <div>
+            	<input ng-repeat="word in actualExercise.phrase" ng-model="result[$index]">
+            </div>
+            <div>
+            	<button class="button button-shadow button-positive red-background button-block uppercase">Resolver</button>
+            </div>
+        </div>
+        <div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
+            <span class="positive">RESULTADO: </span>
+            <br>
+            <br>
+            <span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
+            <span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
+        </div>
+    </ion-content>
+    <div class="bottom-center-bar" style="z-index: 6;">
+        <button class="calm-bg round small-button inline border-none" ng-click="prevExercise()" ng-hide="recording" ng-disabled="position == 0">
+            <i class="ion-chevron-left light"></i>
+        </button>
+        <div class="round big-button inline button-shadow" ng-click="playSound()" style="margin: 0px 5px;" ng-class="{'light-bg': recording, 'positive-bg': !recording}">
+            <i class="ion-ios-volume-high" style="font-size: 45px;" ng-class="{'positive': recording, 'light': !recording}"></i>
+        </div>
+        <button class="calm-bg round small-button inline border-none" ng-click="nextExercise()" ng-hide="recording" ng-disabled="position == unresolvedExercises.length - 1">
+            <i class="ion-chevron-right light"></i>
+        </button>
+    </div>
+</ion-view>

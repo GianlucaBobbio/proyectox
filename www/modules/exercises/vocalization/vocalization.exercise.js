@@ -1,9 +1,14 @@
 angular.module('starter.controllers')
-	.controller('RhythmExerciseCtrl', function($scope, ApiService, $filter, exercises, ToneExercisesManager, $timeout, $state, $interval) {
+	.controller('VocalizationExerciseCtrl', function($scope, ApiService, $filter, exercises, VocalizationExercisesManager, $timeout, $state, $interval) {
 		var mediaRec, mediaTimer = null;
 		$scope.position = 0;
 		$scope.recording = false;
 		$scope.vm = {};
+		$scope.actualExercise = null;
+		var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+		recognition.lang = 'es-AR';
+		recognition.interimResults = false;
+		recognition.maxAlternatives = 5;
 		init();
 
 		function init() {
@@ -25,27 +30,22 @@ angular.module('starter.controllers')
 		}
 
 		$scope.recordButton = function(argument) {
-			if ($scope.recording) {
-				$scope.recording = false;
-				//timeout necesario para que corra el digest
-				$timeout(function() {
-					$scope.stopRecord();
-				}, 10);
-			} else {
-				$scope.recording = true;
-				$scope.startRecord();
+			recognition.start();
+		}
+
+		recognition.onresult = function(event) {
+			console.log(event);
+			// var result = event;
+			// debugger;
+			// logHtml('Dijiste: ' + event.results[0][0].transcript + ' con una certeza del ' + (event.results[0][0].confidence * 100) + '%');
+			// logHtml('Con otros ' + (event.results.length * event.results[0].length - 1) + ' resultados');
+			for (var i = 0; i < event.results.length; i++) {
+				for (var j = 0; j < event.results[i].length; j++) {
+					// logHtml('Otros valores: ' + i + '-' + j + ' ' + event.results[i][j].transcript + ' ' + event.results[i][j].confidence);
+				}
 			}
-		}
-
-		$scope.startRecord = function() {
-			$scope.startTime = Date.now();
-		}
-
-		$scope.stopRecord = function() {
-			$scope.finishTime = Date.now();
-			$scope.diffTime = $scope.finishTime - $scope.startTime;
 			$scope.finishExercise();
-		}
+		};
 
 		function wait(ms) {
 			var start = Date.now(),
@@ -56,13 +56,7 @@ angular.module('starter.controllers')
 		}
 
 		$scope.finishExercise = function() {
-			if ($scope.diffTime < $scope.actualExerciseTime + 1000 && $scope.diffTime > $scope.actualExerciseTime - 1000) {
-				console.log('Correcto:' + $scope.diffTime + ' entre ' + ($scope.actualExerciseTime + 1000) + ' y ' + ($scope.actualExerciseTime - 1000));
-				$scope.correct = true;
-			} else {
-				console.log('Incorrecto:' + $scope.diffTime + ' entre ' + ($scope.actualExerciseTime + 1000) + ' y ' + ($scope.actualExerciseTime - 1000));
-				$scope.correct = false;
-			}
+			// ANALIZAR QUE EL RESULTADO SEA CORRECTO
 			if ($scope.correct) {
 				$timeout(function() {
 					$scope.nextExercise();
@@ -72,7 +66,7 @@ angular.module('starter.controllers')
 
 		$scope.setResult = function() {
 			console.log('start setResult');
-			ToneExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
+			VocalizationExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
 			$scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
 				return exercise.id != $scope.actualExercise.id
 			});

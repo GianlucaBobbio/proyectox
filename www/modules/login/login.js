@@ -21,7 +21,7 @@ angular.module('starter.controllers')
             $rootScope.fireUser = $firebaseObject(firebase.database().ref().child("users").orderByChild('userUid').equalTo($rootScope.userId));
             $rootScope.fireUser.$loaded(function() {
               console.log($rootScope.fireUser);
-              // ExercisesManager.loadExercises();
+              ExercisesManager.checkAndLoadExercises();
             });
           }
           $state.go("app.menuexercises");

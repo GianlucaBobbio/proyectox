@@ -194,6 +194,37 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         }
       }
     })
+    .state('app.recognitionExercises', {
+      url: '/recognitionExercises',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/exercises/recognition/recognition.exercise.html',
+          controller: 'RecognitionExerciseCtrl'
+        }
+      },
+      resolve: {
+        exercises: function(RecognitionExercisesManager, $filter, $stateParams, $q) {
+          return RecognitionExercisesManager.getExercises().then(function(exercises) {
+            var unresolved = $filter('filter')(exercises, function(exercise) {
+              unresolved = true;
+              if (exercise.correct === false || exercise.correct === true) {
+                unresolved = false;
+              }
+              return unresolved;
+            });
+            if(!unresolved || unresolved.length == 0){
+              alert("Sin ejercicios pendientes por resolver.");
+              console.log("Sin ejercicios pendientes por resolver");
+              return $q.reject();
+            }
+            return {
+              all: exercises,
+              unresolved: unresolved
+            };
+          });
+        }
+      }
+    })
     .state('app.rhythmExercises', {
       url: '/rhythmExercises',
       views: {
@@ -205,6 +236,7 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       resolve: {
         exercises: function(RhythmExercisesManager, $filter, $stateParams, $q) {
           return RhythmExercisesManager.getExercises().then(function(exercises) {
+            console.log(exercises);
             var unresolved = $filter('filter')(exercises, function(exercise) {
               unresolved = true;
               if (exercise.correct === false || exercise.correct === true) {

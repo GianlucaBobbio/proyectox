@@ -1,26 +1,32 @@
 angular.module('starter.api')
-  .service('RhythmExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, $q, $rootScope, $firebaseObject) {
+  .service('VocalizationExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, $q, $rootScope, $firebaseObject) {
     var exercisesDone = null;
+    this.getExercisesByCategory = function(category) {
+      var self = this;
+      var exercises = JSON.parse($window.localStorage.getItem("vocalizationExercises"));
+      exercises = $filter('filter')(exercises, { category: category }, true);
+      return $q.resolve(exercises);
+    }
     this.getExercises = function() {
       var self = this;
-      var exercises = JSON.parse($window.localStorage.getItem("rhythmExercises"));
-      return $q.resolve(exercises);
+      var exercises = JSON.parse($window.localStorage.getItem("vocalizationExercises"));
+      return exercises;
     }
     this.resetExercises = function() {
       var self = this;
-      return $http.get('db/exercisesrhythm.json').then(function(json) {
+      return $http.get('db/exercisesVocalization.json').then(function(json) {
         var exercises = json.data;
-        $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
+        $window.localStorage.setItem("vocalizationExercises", JSON.stringify(exercises));
         return self.emptyFireExercises();
       });
     }
     this.loadFireExercises = function() {
-      exercisesDone = $firebaseArray(firebase.database().ref("users/" + $rootScope.userId + "/rhythmExercisesDone"));
+      exercisesDone = $firebaseArray(firebase.database().ref("users/" + $rootScope.userId + "/vocalizationExercisesDone"));
     }
     this.emptyFireExercises = function() {
       var user = $firebaseObject(firebase.database().ref("users/" + $rootScope.userId));
       return user.$loaded(function() {
-        user.rhythmExercisesDone = [];
+        user.vocalizationExercisesDone = [];
         return user.$save();
       });
     }
@@ -28,10 +34,8 @@ angular.module('starter.api')
       var self = this;
       self.loadFireExercises();
       return exercisesDone.$loaded().then(function() {
-        return $http.get('db/exercisesRhythm.json').then(function(json) {
+        return $http.get('db/exercisesVocalization.json').then(function(json) {
           var exercises = json.data;
-          console.log('a');
-          console.log(exercises);
           angular.forEach(exercises, function(exercise) {
             var resolvedExercise = $filter('filter')(exercisesDone, { id: exercise.id }, true)[0];
             if (resolvedExercise) {
@@ -41,13 +45,13 @@ angular.module('starter.api')
           });
           console.log(exercisesDone);
           console.log(exercises);
-          $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
+          $window.localStorage.setItem("vocalizationExercises", JSON.stringify(exercises));
           return true;
         });
       })
     }
     this.setResult = function(exerciseId, result) {
-      var exercises = JSON.parse($window.localStorage.getItem("rhythmExercises"));
+      var exercises = JSON.parse($window.localStorage.getItem("vocalizationExercises"));
       angular.forEach(exercises, function(exercise) {
         if (exercise.id == exerciseId) {
           exercise.correct = result;
@@ -59,6 +63,6 @@ angular.module('starter.api')
       }
       exercisesDone.$add(exerciseDone);
       console.log(exercisesDone);
-      $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
+      $window.localStorage.setItem("vocalizationExercises", JSON.stringify(exercises));
     }
   });

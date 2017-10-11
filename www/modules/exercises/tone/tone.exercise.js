@@ -53,22 +53,23 @@ angular.module('starter.controllers')
             mediaTimer = setInterval(function() {
                 mediaRec.getCurrentAmplitude(
                     function(amp) {
-                        if (amp > 0) {
-                            amp = amp * 32768;
-                            var P = amp / C;
-                            var ampDb = 20 * Math.log10(P / Pref);
-                            // Sólo si la amplitud es mayor al nivel mínimo del sonido ambiente registramos el valor, caso contrario no podemos estar asegurando grabar un registro de la voz de la persona.
-                            if (ampDb > noiseLevel) {
-                                amplitudes.push(ampDb);
-                            }
-                        }
                         // if (amp > 0) {
-                        //     amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                        //     amp = amp * 32768;
+                        //     var P = amp / C;
+                        //     var ampDb = 20 * Math.log10(P / Pref);
                         //     $scope.vm.actualAmp = amp;
-                        //     if (amp > 30) {
-                        //         amplitudes.push(amp);
+                        //     // Sólo si la amplitud es mayor al nivel mínimo del sonido ambiente registramos el valor, caso contrario no podemos estar asegurando grabar un registro de la voz de la persona.
+                        //     if (ampDb > noiseLevel) {
+                        //         amplitudes.push(ampDb);
                         //     }
                         // }
+                        if (amp > 0) {
+                            amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                            $scope.vm.actualAmp = amp;
+                            if (amp > 30) {
+                                amplitudes.push(amp);
+                            }
+                        }
                         $scope.$digest();
                     },
                     function(e) {
