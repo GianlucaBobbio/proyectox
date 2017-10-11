@@ -1,8 +1,6 @@
 angular.module('starter.controllers')
 	.controller('VocalizationExerciseCtrl', function($scope, ApiService, $filter, exercises, VocalizationExercisesManager, $timeout, $state, $interval) {
-		var mediaRec, mediaTimer = null;
 		$scope.position = 0;
-		$scope.recording = false;
 		$scope.vm = {};
 		$scope.actualExercise = null;
 		var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
@@ -21,12 +19,7 @@ angular.module('starter.controllers')
 		function loadExercise() {
 			console.log($scope.actualExercise);
 			console.log('start loadExercise');
-			$scope.actualExerciseTime = $scope.actualExercise.phrase.reduce((a, b) => a.time + b, 0);
 			$scope.correct = null;
-			$scope.recording = false;
-			$scope.startTime = null;
-			$scope.finishTime = null;
-			$scope.diffTime = null;
 		}
 
 		$scope.recordButton = function(argument) {
@@ -46,14 +39,6 @@ angular.module('starter.controllers')
 			}
 			$scope.finishExercise();
 		};
-
-		function wait(ms) {
-			var start = Date.now(),
-				now = start;
-			while (now - start < ms) {
-				now = Date.now();
-			}
-		}
 
 		$scope.finishExercise = function() {
 			// ANALIZAR QUE EL RESULTADO SEA CORRECTO
