@@ -1,27 +1,31 @@
-<ion-view view-title="Ejercicio" style="padding-bottom: 150px;">
+<ion-view view-title="Ejercicio" cache-view="false" style="padding-bottom: 150px;">
 	<ion-content>
+		<div class="padding-20">
+			<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
+          <span class="">PRONUNCIA CORRECTAMENTE</span>
+      </div>
+		</div>
 		<div class="exercise padding-20">
-			<div class="white-card">
-				<div class="white-card-title">
+			<div class="text-on-bg big-text" style="text-align: center; font-size: 45px; text-transform: uppercase;">
 					{{actualExercise.word}}
-				</div>
-				<div class="white-card-content tonePhrase">
-					<span ng-repeat="wordObject in actualExercise.phrase" ng-class="{'selected-word': wordObject.highlighted}">{{wordObject.word}}</span>
-				</div>
 			</div>
 		</div>
-		<div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
+		<div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center; margin-top: 30px;">
 			<span class="positive">RESULTADO: </span>
 			<br>
 			<br>
 			<span ng-show="correct" class="balanced" style="font-size: 30px;">CORRECTO!</span>
 			<span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
-			<div ng-show="percentage">Grado de certeza: {{percentage}}</div>
-			<div ng-show="!percentage">Grado de certeza muy bajo</div>
+			<div ng-show="result && result.confidence">
+				<span>Grado de certeza: {{result.confidence}}%.</span>
+				<span ng-show="correct">Excelente!</span>
+				<span ng-show="!correct">Intenta mejorarlo</span>
+			</div>
+			<div ng-show="!result || !result.confidence">Grado de certeza muy bajo. Intenta mejorarlo</div>
 			<div ng-show="correct === false">
 				<div class="button button-shadow button-faded button-block uppercase" ng-click="nextExercise()">
-					<span ng-hide="position == unresolvedExercises.length - 1">Siguiente Ejercicio</span>
-					<span ng-show="position == unresolvedExercises.length - 1">Finalizar Módulo</span>
+					<span ng-hide="unresolvedExercises.length == 0">Siguiente Ejercicio</span>
+					<span ng-show="unresolvedExercises.length == 0">Finalizar Módulo</span>
 				</div>
 			</div>
 		</div>

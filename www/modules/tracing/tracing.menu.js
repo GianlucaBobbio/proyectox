@@ -11,6 +11,9 @@ angular.module('starter.controllers')
 			if (exerciseType == 3) {
 				$state.go('app.rhythmTracing');
 			}
+			if (exerciseType == 5) {
+				$state.go('app.recognitionTracing');
+			}
 		}
 
 		$scope.sendMail = function() {

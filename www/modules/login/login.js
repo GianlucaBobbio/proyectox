@@ -6,9 +6,9 @@ angular.module('starter.controllers')
     $scope.vm.form = {};
     $scope.authWithFace = function() {
       auth.$signInWithPopup("facebook").then(function(firebaseUser) {
-        console.log("Signed in as:", firebaseUser.uid);
+        
       }).catch(function(error) {
-        console.log("Authentication failed:", error);
+        
       });
     }
     $scope.logInWithMail = function() {
@@ -20,7 +20,7 @@ angular.module('starter.controllers')
           if ($rootScope.userId) {
             $rootScope.fireUser = $firebaseObject(firebase.database().ref().child("users").orderByChild('userUid').equalTo($rootScope.userId));
             $rootScope.fireUser.$loaded(function() {
-              console.log($rootScope.fireUser);
+              
               ExercisesManager.checkAndLoadExercises();
             });
           }

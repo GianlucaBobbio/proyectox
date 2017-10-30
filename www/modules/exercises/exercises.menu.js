@@ -16,4 +16,10 @@ angular.module('starter.controllers')
         $scope.startRhythmExercises = function(){
             $state.go('app.rhythmExercises');   
         }
+        $scope.startRecognitionExercises = function(){
+            $state.go('app.recognitionExercises');
+        }
+        $scope.startVocalizationExercises = function(){
+            $state.go('app.vocalizationExercises');   
+        }
     });

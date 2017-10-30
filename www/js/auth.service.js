@@ -15,11 +15,11 @@ angular.module('starter')
     }
     this.logInWithMail = function(mail, password) {
       return auth.$signInWithEmailAndPassword(mail, password).then(function(firebaseUser) {
-        console.log("Signed in as:", firebaseUser.uid);
+        
         $window.localStorage.setItem("loggedUserUid", JSON.stringify(firebaseUser.uid));
         return true;
       }).catch(function(error) {
-        console.log(error);
+        
         alert("Autenticación fallida : " + error);
         return false;
       });
@@ -30,11 +30,11 @@ angular.module('starter')
           firebase.database().ref("users").child(firebaseUser.uid).set({
             mail: mail
           });
-          console.log("User " + firebaseUser.uid + " created successfully!");
+          
           alert("Hecho! Intenta iniciar sesión");
           return true;
         }).catch(function(error) {
-          console.log(error);
+          
           if(error.code == "auth/email-already-in-use"){
             alert("Hubo un problema al crear el usuario: El email ya está en uso");
           }else{
@@ -44,7 +44,7 @@ angular.module('starter')
     }
     this.resetPassword = function(mail) {
       return auth.$sendPasswordResetEmail(mail).then(function() {
-        console.log("Password reset email sent successfully!");
+        
         alert("Hecho! Se ha enviado un mail con los pasos a seguir");
         return true;
       }).catch(function(error) {

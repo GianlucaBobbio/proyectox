@@ -3,22 +3,22 @@ angular.module('starter.controllers')
 		$scope.position = 0;
 		$scope.vm = {};
 		$scope.actualExercise = null;
-		var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-		recognition.lang = 'es-AR';
+		$scope.result = {};
+		// var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+		var recognition = new SpeechRecognition();
+		recognition.lang = 'es-ES';
 		recognition.interimResults = false;
 		recognition.maxAlternatives = 5;
 		init();
 
 		function init() {
-			$scope.actualExercise = angular.copy(exercises.unresolved[$scope.position]);
-			console.log($scope.actualExercise);
+			$scope.actualExercise = angular.copy(exercises.unresolved[0]);
 			$scope.unresolvedExercises = exercises.unresolved;
+			console.log($scope.unresolvedExercises);
 			loadExercise();
 		}
 
 		function loadExercise() {
-			console.log($scope.actualExercise);
-			console.log('start loadExercise');
 			$scope.correct = null;
 		}
 
@@ -27,20 +27,47 @@ angular.module('starter.controllers')
 		}
 
 		recognition.onresult = function(event) {
-			console.log(event);
+			$scope.result = {};
 			// var result = event;
 			// debugger;
 			// logHtml('Dijiste: ' + event.results[0][0].transcript + ' con una certeza del ' + (event.results[0][0].confidence * 100) + '%');
 			// logHtml('Con otros ' + (event.results.length * event.results[0].length - 1) + ' resultados');
+			console.log(event.results);
 			for (var i = 0; i < event.results.length; i++) {
 				for (var j = 0; j < event.results[i].length; j++) {
+					var transcript = event.results[i][j].transcript;
+					var confidence = event.results[i][j].confidence;
+					if (transcript.toLowerCase() == $scope.actualExercise.word.toLowerCase()) {
+						$scope.result = {
+							confidence: Math.round(confidence * 100)
+						};
+						break;
+					}
 					// logHtml('Otros valores: ' + i + '-' + j + ' ' + event.results[i][j].transcript + ' ' + event.results[i][j].confidence);
 				}
 			}
+			if ($scope.result && $scope.result.confidence && $scope.result.confidence >= 90) {
+				$scope.result.correct = true;
+			} else {
+				$scope.result.correct = false;
+			}
+			console.log($scope.result);
 			$scope.finishExercise();
 		};
+		// recognition.onresult = function(event) {
+		// 	$scope.result = {
+		// 		confidence: 80,
+		// 		correct: false
+		// 	};
+		// 	$scope.finishExercise();
+		// }
 
 		$scope.finishExercise = function() {
+			if ($scope.result)
+				$scope.correct = $scope.result.correct;
+			else
+				$scope.correct = false;
+			$scope.setResult();
 			// ANALIZAR QUE EL RESULTADO SEA CORRECTO
 			if ($scope.correct) {
 				$timeout(function() {
@@ -50,26 +77,17 @@ angular.module('starter.controllers')
 		}
 
 		$scope.setResult = function() {
-			console.log('start setResult');
 			VocalizationExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
 			$scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
 				return exercise.id != $scope.actualExercise.id
 			});
 		}
-
 		$scope.nextExercise = function() {
-			$scope.setResult();
+			console.log($scope.unresolvedExercises);
 			if ($scope.unresolvedExercises.length > 0) {
-				console.log('unresolvedExercises.length > 0');
-				if ($scope.position >= $scope.unresolvedExercises.length) {
-					console.log('last position');
-					$scope.position = $scope.unresolvedExercises.length - 1;
-				}
-				$scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
+				$scope.actualExercise = angular.copy($scope.unresolvedExercises[0]);
 				loadExercise();
-				$scope.$apply();
 			} else {
-				console.log("$scope.unresolvedExercises.length == 0");
 				alert("Ha finalizado todos los ejercicios");
 				$state.go('app.menuexercises');
 			}

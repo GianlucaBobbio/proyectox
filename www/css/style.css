@@ -370,3 +370,11 @@ i.arrow {
 .sound-tracing-category{
 	font-weight: 600;
 }
+
+.incorrectRecognition{
+	background-color: rgba(256,0,0,0.2);
+}
+
+.correctRecognition{
+	background-color: rgba(85, 169, 7, 0.2);
+}

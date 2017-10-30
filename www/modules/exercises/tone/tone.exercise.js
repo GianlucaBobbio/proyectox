@@ -14,7 +14,7 @@ angular.module('starter.controllers')
         $scope.maxLowerAmp = ToneExercisesManager.maxLowerAmplitude() * 100;
         $scope.minHigherAmp = ToneExercisesManager.minHigherAmplitude() * 100;
 
-        console.log('gato');
+        
         init();
 
         function init() {
@@ -24,8 +24,8 @@ angular.module('starter.controllers')
         }
 
         function loadExercise() {
-            console.log($scope.actualExercise);
-            console.log('start loadExercise');
+            
+            
             $scope.correct = null;
             $scope.vm.actualAmp = 0;
             $scope.mediaAmplitude = 0;
@@ -90,25 +90,25 @@ angular.module('starter.controllers')
         $scope.finishExercise = function() {
             $scope.vm.showHelp = true;
             if ($scope.mediaAmplitude > $scope.actualExercise.toneFrom && $scope.mediaAmplitude <= $scope.actualExercise.toneTo) {
-                console.log('Correcto:' + $scope.mediaAmplitude + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
+                
                 $scope.correct = true;
             } else {
-                console.log('Incorrecto:' + $scope.mediaAmplitude + ' entre ' + $scope.actualExercise.toneFrom + ' y ' + $scope.actualExercise.toneTo);
+                
                 $scope.correct = false;
             }
             $scope.setResult();
             $timeout(function() {
                 if ($scope.unresolvedExercises.length > 0) {
-                    console.log('unresolvedExercises.length > 0');
+                    
                     if ($scope.position >= $scope.unresolvedExercises.length) {
-                        console.log('last position');
+                        
                         $scope.position = $scope.unresolvedExercises.length - 1;
                     }
                     $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
                     loadExercise();
                     $scope.$apply();
                 } else {
-                    console.log("$scope.unresolvedExercises.length == 0");
+                    
                     alert("Ha finalizado todos los ejercicios");
                     $state.go('app.menuexercises');
                 }
@@ -116,7 +116,7 @@ angular.module('starter.controllers')
         }
 
         $scope.setResult = function() {
-            console.log('start setResult');
+            
             ToneExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
             $scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
                 return exercise.id != $scope.actualExercise.id

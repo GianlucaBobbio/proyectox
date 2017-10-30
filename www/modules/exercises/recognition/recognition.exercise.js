@@ -1,8 +1,10 @@
 angular.module('starter.controllers')
   .controller('RecognitionExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, RecognitionExercisesManager, $state, $timeout) {
+    
     $scope.position = 0;
     $scope.playing = false;
     $scope.result = [];
+    $scope.correctsResults = [];
     var sound = null;
     var actualResolved = false;
     init();
@@ -14,8 +16,10 @@ angular.module('starter.controllers')
     }
 
     function loadExercise() {
-      console.log('start loadExercise');
+      
       $scope.correct = null;
+      $scope.correctsResults = [];
+      $scope.result = [];
       $scope.playing = false;
       sound = null;
       actualResolved = false;
@@ -30,7 +34,7 @@ angular.module('starter.controllers')
     }
 
     $scope.nextExercise = function() {
-      console.log('start nextExercise');
+      
       stopPlaying();
       if (actualResolved) {
         $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
@@ -50,9 +54,7 @@ angular.module('starter.controllers')
 
     $scope.playSound = function() {
       stopPlaying();
-      sound = new Media('/android_asset/www/db/sounds/' + $scope.actualExercise.sound, function() {
-      }, function(e) {
-      });
+      sound = new Media('/android_asset/www/db/sounds/' + $scope.actualExercise.sound, function() {}, function(e) {});
       sound.play();
       $scope.playing = true;
     }
@@ -60,11 +62,20 @@ angular.module('starter.controllers')
     // $scope.playSound = function() {}
 
     $scope.resolveExercise = function() {
-      console.log('start resolveExercise');
+      
       var correct = true;
-      for (var i = actualExercise.phrase.length - 1; i >= 0; i--) {
-      	if($scope.result[i] != actualExercise.phrase[i])
-      		correct = false;
+      for (var i = $scope.actualExercise.phrase.length - 1; i >= 0; i--) {
+        var exerciseWord = RemoveAccents($scope.actualExercise.phrase[i]);
+        var input = RemoveAccents($scope.result[i]);
+        
+         
+        if (input != exerciseWord) {
+          correct = false;
+          $scope.correctsResults[i] = false;
+        } else {
+          $scope.correctsResults[i] = true;
+        }
+
       }
       $scope.correct = correct;
       actualResolved = true;
@@ -73,26 +84,26 @@ angular.module('starter.controllers')
         $timeout(function() {
           stopPlaying();
           if ($scope.unresolvedExercises.length > 0) {
-            if($scope.position >= $scope.unresolvedExercises.length){
-                $scope.position = $scope.unresolvedExercises.length - 1;
+            if ($scope.position >= $scope.unresolvedExercises.length) {
+              $scope.position = $scope.unresolvedExercises.length - 1;
             }
             $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
             loadExercise();
             $scope.$apply();
-          }else{
+          } else {
             alert("Ha finalizado todos los ejercicios");
             $state.go('app.menuexercises');
           }
-        }, 2000);
+        }, 3000);
       }
     }
 
-    $scope.setResult = function () {
-        console.log('start setResult');
-        RecognitionExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
-        $scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
-          return exercise.id != $scope.actualExercise.id
-        });
+    $scope.setResult = function() {
+      
+      RecognitionExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
+      $scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
+        return exercise.id != $scope.actualExercise.id
+      });
     }
 
     function shuffle(array) {
@@ -107,5 +118,19 @@ angular.module('starter.controllers')
       }
 
       return array;
+    }
+
+    function RemoveAccents(str) {
+      var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+      var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+      str = str.split('');
+      var strLen = str.length;
+      var i, x;
+      for (i = 0; i < strLen; i++) {
+        if ((x = accents.indexOf(str[i])) != -1) {
+          str[i] = accentsOut[x];
+        }
+      }
+      return str.join('').toUpperCase();
     }
   });

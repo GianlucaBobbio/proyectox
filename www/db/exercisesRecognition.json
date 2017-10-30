@@ -1,5 +1,41 @@
 [{
 	"id":1,
-	"sound":"recognition/1.mp3",
-	"phrase": ["hola", "mario", "como", "andas"]
+	"name": "Cuidado con el escalón",
+	"sound":"recognition/cuidado_con_el_escalon.mp3",
+	"phrase": ["cuidado", "con", "el", "escalón"]
+},{
+	"id":2,
+	"name": "Está lloviendo mucho",
+	"sound":"recognition/esta_lloviendo_mucho.mp3",
+	"phrase": ["está", "lloviendo", "mucho"]
+},{
+	"id":3,
+	"name": "Estoy en la calle",
+	"sound":"recognition/estoy_en_la_calle.mp3",
+	"phrase": ["estoy", "en", "la", "calle"]
+},{
+	"id":4,
+	"name": "Hola",
+	"sound":"recognition/hola.mp3",
+	"phrase": ["hola"]
+},{
+	"id":5,
+	"name": "Muchas gracias señor",
+	"sound":"recognition/muchas_gracias_senor.mp3",
+	"phrase": ["muchas", "gracias", "señor"]
+},{
+	"id":6,
+	"name": "Qué lindo día",
+	"sound":"recognition/que_lindo_dia.mp3",
+	"phrase": ["qué", "lindo", "día"]
+},{
+	"id":7,
+	"name": "Vamos al parque",
+	"sound":"recognition/vamos_al_parque.mp3",
+	"phrase": ["vamos", "al", "parque"]
+},{
+	"id":8,
+	"name": "Ya es hora de cenar",
+	"sound":"recognition/ya_es_hora_de_cenar.mp3",
+	"phrase": ["ya", "es", "hora", "de", "cenar"]
 }]

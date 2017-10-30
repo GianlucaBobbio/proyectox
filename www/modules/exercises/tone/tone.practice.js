@@ -37,7 +37,7 @@ angular.module('starter.controllers')
                         $scope.$digest();
                     },
                     function(e) {
-                        console.log("Error getting amp=" + e);
+                        
                     }
                 );
             }, 10);

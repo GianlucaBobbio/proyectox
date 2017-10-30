@@ -39,12 +39,12 @@ angular.module('starter.api')
           angular.forEach(exercises, function(exercise) {
             var resolvedExercise = $filter('filter')(exercisesDone, { id: exercise.id }, true)[0];
             if (resolvedExercise) {
-              console.log(resolvedExercise);
+              
               exercise.correct = resolvedExercise.correct;
             }
           });
-          console.log(exercisesDone);
-          console.log(exercises);
+          
+          
           $window.localStorage.setItem("toneExercises", JSON.stringify(exercises));
           return true;
         });
@@ -62,7 +62,7 @@ angular.module('starter.api')
         id: exerciseId
       }
       exercisesDone.$add(exerciseDone);
-      console.log(exercisesDone);
+      
       $window.localStorage.setItem("toneExercises", JSON.stringify(exercises));
     }
   });

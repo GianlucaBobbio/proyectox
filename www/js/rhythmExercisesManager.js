@@ -30,17 +30,17 @@ angular.module('starter.api')
       return exercisesDone.$loaded().then(function() {
         return $http.get('db/exercisesRhythm.json').then(function(json) {
           var exercises = json.data;
-          console.log('a');
-          console.log(exercises);
+          
+          
           angular.forEach(exercises, function(exercise) {
             var resolvedExercise = $filter('filter')(exercisesDone, { id: exercise.id }, true)[0];
             if (resolvedExercise) {
-              console.log(resolvedExercise);
+              
               exercise.correct = resolvedExercise.correct;
             }
           });
-          console.log(exercisesDone);
-          console.log(exercises);
+          
+          
           $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
           return true;
         });
@@ -58,7 +58,7 @@ angular.module('starter.api')
         id: exerciseId
       }
       exercisesDone.$add(exerciseDone);
-      console.log(exercisesDone);
+      
       $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
     }
   });

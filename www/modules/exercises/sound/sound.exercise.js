@@ -13,7 +13,7 @@ angular.module('starter.controllers')
     }
 
     function loadExercise() {
-      console.log('start loadExercise');
+      
       // angular.forEach($scope.compareExercises, function (image) {
       //     image.wasCorrect = null;
       // });
@@ -36,7 +36,7 @@ angular.module('starter.controllers')
     }
 
     $scope.nextExercise = function() {
-      console.log('start nextExercise');
+      
       stopPlaying();
       if (actualResolved) {
         $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
@@ -66,7 +66,7 @@ angular.module('starter.controllers')
     // $scope.playSound = function(exercise) {}
 
     $scope.resolveExercise = function(selected) {
-      console.log('start resolveExercise');
+      
       var correct = false;
       $scope.playSound(selected);
       if (selected.id == $scope.actualExercise.id) {
@@ -80,21 +80,21 @@ angular.module('starter.controllers')
         $scope.setResult();
       }
       if (correct) {
-        console.log('correct=true');
+        
         $timeout(function() {
           stopPlaying();
           // $state.reload();
           if ($scope.unresolvedExercises.length > 0) {
-            console.log('unresolvedExercises.length > 0');
+            
             if($scope.position >= $scope.unresolvedExercises.length){
-                console.log('last position');
+                
                 $scope.position = $scope.unresolvedExercises.length - 1;
             }
             $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
             loadExercise();
             $scope.$apply();
           }else{
-            console.log("$scope.unresolvedExercises.length == 0");
+            
             alert("Ha finalizado todos los ejercicios");
             $state.go('app.soundCategories');
           }
@@ -103,7 +103,7 @@ angular.module('starter.controllers')
     }
 
     $scope.setResult = function () {
-        console.log('start setResult');
+        
         SoundExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
         $scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
           return exercise.id != $scope.actualExercise.id

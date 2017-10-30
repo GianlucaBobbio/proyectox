@@ -2,12 +2,6 @@
     <ion-content class="padding">
         <div class="text-center">
             <!-- #/app/exercises/1 -->
-            <div ng-disabled="true" class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(1)">
-                Pronunciación
-            </div>
-            <div class="exercise-description" ng-show="vm.selected == 1">
-                <p> Practica vocales, consonantes y sus combinaciones en una práctica incremental.</p>
-            </div>
             <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
                 Volumen de Voz
             </div>
@@ -36,6 +30,24 @@
                 <p>Escucha el sonido y asóciala con su imagen.</p>
                 <p>* Se necesita capacidad auditiva.</p>
                 <div class="button button-shadow button-positive red-background uppercase" ng-click="startSoundExercises()">
+                    Comenzar
+                </div>
+            </div>
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(5)">
+                Reconocimiento
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 5">
+                <p>Distingue las frases de los sonidos ambientales.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startRecognitionExercises()">
+                    Comenzar
+                </div>
+            </div>
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(6)">
+                Pronunciación
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 6">
+                <p>FRASE.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startVocalizationExercises()">
                     Comenzar
                 </div>
             </div>

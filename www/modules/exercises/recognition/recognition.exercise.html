@@ -4,11 +4,14 @@
             <div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
                 <span class="">RECONOCER LAS PALABRAS</span>
             </div>
-            <div>
-            	<input ng-repeat="word in actualExercise.phrase" ng-model="result[$index]">
+            <div class="list list-inset">
+              <label class="item item-input" ng-repeat="word in actualExercise.phrase" ng-class="{'correctRecognition': correctsResults[$index], 'incorrectRecognition': correctsResults[$index] === false}">
+                <i class="icon placeholder-icon">{{$index + 1}}</i>
+                <input type="text" ng-model="result[$index]">
+              </label>
             </div>
             <div>
-            	<button class="button button-shadow button-positive red-background button-block uppercase">Resolver</button>
+            	<button class="button button-shadow button-positive red-background button-block uppercase" ng-click="resolveExercise()">Resolver</button>
             </div>
         </div>
         <div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">

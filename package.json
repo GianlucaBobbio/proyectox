@@ -16,7 +16,8 @@
         "gulp-minify-css": "^0.3.0",
         "gulp-rename": "^1.2.0",
         "gulp-sass": "^2.0.4",
-        "ionic-plugin-keyboard": "^2.2.1"
+        "ionic-plugin-keyboard": "^2.2.1",
+        "phonegap-plugin-speech-recognition": "git+https://github.com/macdonst/SpeechRecognitionPlugin.git"
     },
     "devDependencies": {
         "@ionic/cli-plugin-cordova": "1.6.2",
@@ -44,7 +45,8 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-whitelist": {},
             "cordova-plugin-media": {},
-            "cordova-plugin-dbmeter": {}
+            "cordova-plugin-dbmeter": {},
+            "phonegap-plugin-speech-recognition": {}
         }
     }
 }
