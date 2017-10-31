@@ -1,12 +1,21 @@
 <ion-view cache-view="false" view-title="Menú de Ejercicios">
     <ion-content class="padding">
         <div class="text-center">
-            <!-- #/app/exercises/1 -->
+            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(4)">
+                Discrimicación Auditiva
+            </div>
+            <div class="exercise-description" ng-show="vm.selected == 4">
+                <p>Escuche sonidos y asócielos a su imagen correspondiente. </p>
+                <p> Se requiere de capacidad auditiva.</p>
+                <div class="button button-shadow button-positive red-background uppercase" ng-click="startSoundExercises()">
+                    Comenzar
+                </div>
+            </div>
             <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(2)">
                 Volumen de Voz
             </div>
             <div class="exercise-description" ng-show="vm.selected == 2">
-                <p>Regula el volúmen de tu voz.</p>
+                <p>Regule el volumen de su voz.</p>
                 <div class="button button-shadow button-positive red-background uppercase" ng-click="startTonePractice()">
                     Práctica Libre
                 </div>
@@ -18,18 +27,8 @@
                 Ritmo
             </div>
             <div class="exercise-description" ng-show="vm.selected == 3">
-                <p>Lee la frase en el tiempo adecuado.</p>
+                <p>Regule el ritmo del habla mediante lectura de frases.</p>
                 <div class="button button-shadow button-positive red-background uppercase" ng-click="startRhythmExercises()">
-                    Comenzar
-                </div>
-            </div>
-            <div class="button button-shadow button-positive red-background button-block uppercase margin-top-20" ng-click="selectExercise(4)">
-                Discrimicación Auditiva *
-            </div>
-            <div class="exercise-description" ng-show="vm.selected == 4">
-                <p>Escucha el sonido y asóciala con su imagen.</p>
-                <p>* Se necesita capacidad auditiva.</p>
-                <div class="button button-shadow button-positive red-background uppercase" ng-click="startSoundExercises()">
                     Comenzar
                 </div>
             </div>
@@ -37,7 +36,8 @@
                 Reconocimiento
             </div>
             <div class="exercise-description" ng-show="vm.selected == 5">
-                <p>Distingue las frases de los sonidos ambientales.</p>
+                <p>Reconozca palabras y frases en un contexto con sonidos de fondo.</p>
+                <p>Se requiere de capacidad auditiva.</p>
                 <div class="button button-shadow button-positive red-background uppercase" ng-click="startRecognitionExercises()">
                     Comenzar
                 </div>
@@ -46,7 +46,7 @@
                 Pronunciación
             </div>
             <div class="exercise-description" ng-show="vm.selected == 6">
-                <p>FRASE.</p>
+                <p>Mejore su pronunciación al expresar palabras y frases.</p>
                 <div class="button button-shadow button-positive red-background uppercase" ng-click="startVocalizationExercises()">
                     Comenzar
                 </div>

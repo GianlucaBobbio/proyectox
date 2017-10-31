@@ -17,17 +17,76 @@ angular.module('starter.controllers')
 		}
 
 		$scope.sendMail = function() {
-			var userName = $rootScope.fireUser.name;
-			SoundExercisesManager.getExercisesByCategory(1).then(function(exercises) {
-				var category1 = {
+			var sound = {
+				exercisesCategory1: function(SoundExercisesManager, $filter, $stateParams, $q) {
+					return SoundExercisesManager.getExercisesByCategory(1).then(function(exercises) {
+						return {
+							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+						};
+					});
+				},
+				exercisesCategory2: function(SoundExercisesManager, $filter, $stateParams, $q) {
+					return SoundExercisesManager.getExercisesByCategory(2).then(function(exercises) {
+						return {
+							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+						};
+					});
+				},
+				exercisesCategory3: function(SoundExercisesManager, $filter, $stateParams, $q) {
+					return SoundExercisesManager.getExercisesByCategory(3).then(function(exercises) {
+						return {
+							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+						};
+					});
+				},
+				exercisesCategory4: function(SoundExercisesManager, $filter, $stateParams, $q) {
+					return SoundExercisesManager.getExercisesByCategory(4).then(function(exercises) {
+						return {
+							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+						};
+					});
+				},
+				exercisesCategory5: function(SoundExercisesManager, $filter, $stateParams, $q) {
+					return SoundExercisesManager.getExercisesByCategory(5).then(function(exercises) {
+						return {
+							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+						};
+					});
+				}
+			};
+			var recognition = RecognitionExercisesManager.getExercises().then(function(exercises) {
+				return {
 					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
 					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
 					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
 				};
-				"En el ejercicio de Discriminación auditiva: En la categoría de Animales"
+			});
+			var tone = ToneExercisesManager.getExercises().then(function(exercises) {
+				return {
+					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+				};
+			});
+			var rhythm = RhythmExercisesManager.getExercises().then(function(exercises) {
+				return {
+					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
+					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
+					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
+				};
 			});
 		}
 	});
 
 
-// 
+//

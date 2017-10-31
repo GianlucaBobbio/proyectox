@@ -2,7 +2,7 @@
     <ion-content>
         <div class="exercise padding-20">
             <div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
-                <span class="">RECONOCER LAS PALABRAS</span>
+                <span class="">ESCRIBA LAS PALABRAS QUE ESCUCHA</span>
             </div>
             <div class="list list-inset">
               <label class="item item-input" ng-repeat="word in actualExercise.phrase" ng-class="{'correctRecognition': correctsResults[$index], 'incorrectRecognition': correctsResults[$index] === false}">
@@ -11,7 +11,7 @@
               </label>
             </div>
             <div>
-            	<button class="button button-shadow button-positive red-background button-block uppercase" ng-click="resolveExercise()">Resolver</button>
+            	<button class="button button-shadow button-positive red-background button-block uppercase" ng-disabled="correct" ng-click="resolveExercise()">Resolver</button>
             </div>
         </div>
         <div ng-show="correct || correct === false" class="text-on-bg big-text" style="text-align: center;">
@@ -22,7 +22,7 @@
             <span ng-show="correct === false" class="assertive" style="font-size: 30px;">INCORRECTO</span>
         </div>
     </ion-content>
-    <div class="bottom-center-bar" style="z-index: 6;">
+    <div class="bottom-center-bar" ng-hide="correct" style="z-index: 6;">
         <button class="calm-bg round small-button inline border-none" ng-click="prevExercise()" ng-hide="recording" ng-disabled="position == 0">
             <i class="ion-chevron-left light"></i>
         </button>

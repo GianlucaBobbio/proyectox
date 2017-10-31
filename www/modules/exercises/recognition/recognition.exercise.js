@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
   .controller('RecognitionExerciseCtrl', function($scope, $rootScope, ApiService, $filter, exercises, RecognitionExercisesManager, $state, $timeout) {
-    
+
     $scope.position = 0;
     $scope.playing = false;
     $scope.result = [];
@@ -16,7 +16,7 @@ angular.module('starter.controllers')
     }
 
     function loadExercise() {
-      
+
       $scope.correct = null;
       $scope.correctsResults = [];
       $scope.result = [];
@@ -34,7 +34,7 @@ angular.module('starter.controllers')
     }
 
     $scope.nextExercise = function() {
-      
+
       stopPlaying();
       if (actualResolved) {
         $scope.actualExercise = angular.copy($scope.unresolvedExercises[$scope.position]);
@@ -62,13 +62,13 @@ angular.module('starter.controllers')
     // $scope.playSound = function() {}
 
     $scope.resolveExercise = function() {
-      
+
       var correct = true;
       for (var i = $scope.actualExercise.phrase.length - 1; i >= 0; i--) {
         var exerciseWord = RemoveAccents($scope.actualExercise.phrase[i]);
         var input = RemoveAccents($scope.result[i]);
-        
-         
+
+
         if (input != exerciseWord) {
           correct = false;
           $scope.correctsResults[i] = false;
@@ -99,7 +99,7 @@ angular.module('starter.controllers')
     }
 
     $scope.setResult = function() {
-      
+
       RecognitionExercisesManager.setResult($scope.actualExercise.id, $scope.correct);
       $scope.unresolvedExercises = $filter('filter')($scope.unresolvedExercises, function(exercise) {
         return exercise.id != $scope.actualExercise.id
@@ -123,14 +123,17 @@ angular.module('starter.controllers')
     function RemoveAccents(str) {
       var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
       var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
-      str = str.split('');
-      var strLen = str.length;
-      var i, x;
-      for (i = 0; i < strLen; i++) {
-        if ((x = accents.indexOf(str[i])) != -1) {
-          str[i] = accentsOut[x];
+      if (str) {
+        str = str.split('');
+        var strLen = str.length;
+        var i, x;
+        for (i = 0; i < strLen; i++) {
+          if ((x = accents.indexOf(str[i])) != -1) {
+            str[i] = accentsOut[x];
+          }
         }
+        str = str.join('').toUpperCase();
       }
-      return str.join('').toUpperCase();
+      return str;
     }
   });
