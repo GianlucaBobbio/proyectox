@@ -330,6 +330,26 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
         },
       }
     })
+    .state('app.vocalizationTracing', {
+      url: '/vocalizationTracing',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/tracing/vocalization.tracing.html',
+          controller: 'VocalizationTracingCtrl'
+        }
+      },
+      resolve: {
+        exercises: function(VocalizationExercisesManager, $filter, $stateParams, $q) {
+          return VocalizationExercisesManager.getExercises().then(function(exercises) {
+            return {
+              unresolveds: $filter('filter')(exercises, function(exercise){return !(exercise.correct === false || exercise.correct === true)}),
+              corrects: $filter('filter')(exercises, function(exercise){return exercise.correct === true}),
+              wrongs: $filter('filter')(exercises, function(exercise){return exercise.correct === false})
+            };
+          });
+        },
+      }
+    })
     .state('app.toneTracing', {
       url: '/toneTracing',
       views: {

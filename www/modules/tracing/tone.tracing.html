@@ -1,16 +1,14 @@
-<ion-view cache-view="false" view-title="Seguimiento Volúmen de Voz">
+<ion-view cache-view="false" view-title="Seguimiento">
 	<ion-content class="padding">
 		<div class="chart-container">
-			<div class="text-center">
-				<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
-					<span class=""></span>
-				</div>
-			</div>
-			<canvas class="chart chart-pie" chart-data="exercises.data" chart-labels="exercises.labels" chart-options="options">
+			<canvas id="seguimiento" class="chart chart-pie" chart-data="exercises.data" chart-labels="exercises.labels" chart-options="exercises.options">
 			</canvas>
-			<div class="button button-shadow button-assertive button-block uppercase margin-top-20" ng-click="resetToneExercises()">
-                REINICIAR
-            </div>
+			<div class="button button-shadow red-background button-positive button-block uppercase margin-top-20" ng-click="sendMail()">
+				COMPARTIR
+			</div>
+			<div class="button button-assertive button-block uppercase margin-top-20" ng-click="resetToneExercises()">
+				REINICIAR
+			</div>
 		</div>
 		<div ng-if="wrongs.length">
 			<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">

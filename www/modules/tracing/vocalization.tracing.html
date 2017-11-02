@@ -6,7 +6,7 @@
 			<div class="button button-shadow red-background button-positive button-block uppercase margin-top-20" ng-click="sendMail()">
 				COMPARTIR
 			</div>
-			<div class="button button-assertive button-block uppercase margin-top-20" ng-click="resetRecognitionExercises()">
+			<div class="button button-assertive button-block uppercase margin-top-20" ng-click="resetVocalizationExercises()">
 				REINICIAR
 			</div>
 		</div>
@@ -14,8 +14,8 @@
 			<div class="text-on-bg" style="text-align: center; margin-bottom: 10px;">
 				<span class="big-text">Ejercicios Incorrectos</span>
 			</div>
-			<div ng-repeat="exercise in wrongs" class="bigger-text">
-				&nbsp; - {{exercise.name}}
+			<div ng-repeat="exercise in wrongs" class="bigger-text" style="text-transform: capitalize;">
+				&nbsp; - {{exercise.word}}
 			</div>
 		</div>
 	</ion-content>

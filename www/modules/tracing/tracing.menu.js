@@ -14,78 +14,11 @@ angular.module('starter.controllers')
 			if (exerciseType == 5) {
 				$state.go('app.recognitionTracing');
 			}
+			if (exerciseType == 1) {
+				$state.go('app.vocalizationTracing');
+			}
 		}
 
-		$scope.sendMail = function() {
-			var sound = {
-				exercisesCategory1: function(SoundExercisesManager, $filter, $stateParams, $q) {
-					return SoundExercisesManager.getExercisesByCategory(1).then(function(exercises) {
-						return {
-							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-						};
-					});
-				},
-				exercisesCategory2: function(SoundExercisesManager, $filter, $stateParams, $q) {
-					return SoundExercisesManager.getExercisesByCategory(2).then(function(exercises) {
-						return {
-							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-						};
-					});
-				},
-				exercisesCategory3: function(SoundExercisesManager, $filter, $stateParams, $q) {
-					return SoundExercisesManager.getExercisesByCategory(3).then(function(exercises) {
-						return {
-							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-						};
-					});
-				},
-				exercisesCategory4: function(SoundExercisesManager, $filter, $stateParams, $q) {
-					return SoundExercisesManager.getExercisesByCategory(4).then(function(exercises) {
-						return {
-							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-						};
-					});
-				},
-				exercisesCategory5: function(SoundExercisesManager, $filter, $stateParams, $q) {
-					return SoundExercisesManager.getExercisesByCategory(5).then(function(exercises) {
-						return {
-							unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-							corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-							wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-						};
-					});
-				}
-			};
-			var recognition = RecognitionExercisesManager.getExercises().then(function(exercises) {
-				return {
-					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-				};
-			});
-			var tone = ToneExercisesManager.getExercises().then(function(exercises) {
-				return {
-					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-				};
-			});
-			var rhythm = RhythmExercisesManager.getExercises().then(function(exercises) {
-				return {
-					unresolveds: $filter('filter')(exercises, function(exercise) { return !(exercise.correct === false || exercise.correct === true) }),
-					corrects: $filter('filter')(exercises, function(exercise) { return exercise.correct === true }),
-					wrongs: $filter('filter')(exercises, function(exercise) { return exercise.correct === false })
-				};
-			});
-		}
 	});
 
 

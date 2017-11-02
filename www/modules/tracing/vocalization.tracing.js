@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-	.controller('RhythmTracingCtrl', function($scope, exercises, $filter, $ionicPopup, RhythmExercisesManager, $state) {
+	.controller('VocalizationTracingCtrl', function($scope, exercises, $filter, $ionicPopup, VocalizationExercisesManager, $state) {
 		$scope.vm = {};
 		function options(title) {
 			return {
@@ -18,9 +18,9 @@ angular.module('starter.controllers')
 		$scope.exercises = {
 			labels: ["Correctos: " +exercises.corrects.length, "Sin realizar: " + exercises.unresolveds.length, "Incorrectos: " + exercises.wrongs.length],
 			data: [exercises.corrects.length, exercises.unresolveds.length, exercises.wrongs.length],
-			options: options("RITMO")
+			options: options("PRONUNCIACION")
 		}
-		$scope.resetRhythmExercises = function() {
+		$scope.resetVocalizationExercises = function() {
 			var confirmPopup = $ionicPopup.confirm({
 				title: 'Alerta',
 				template: 'Si continúa perderá todo su avance',
@@ -28,16 +28,18 @@ angular.module('starter.controllers')
 				okText: 'Continuar'
 			}).then(function(res) {
 				if (res) {
-					RhythmExercisesManager.resetExercises();
+					VocalizationExercisesManager.resetExercises();
 					alert('Módulo reiniciado correctamente');
 					$state.go('app.tracing');
 				}
 			});
 		}
+
 		$scope.sendMail = function() {
 			cordova.plugins.email.isAvailable(function(hasAccount) {
 				if (hasAccount) {
 					var chart = canvasToImg("seguimiento");
+					// var wrongs = exercises.wrongs.toString();
 					cordova.plugins.email.open({
 						to: [], // email addresses for TO field
 						subject: "Seguimiento Reconocimiento", // subject of the email
