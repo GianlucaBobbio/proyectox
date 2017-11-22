@@ -6,6 +6,7 @@ angular.module('starter.controllers')
 		$scope.result = {};
 		// var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 		var recognition = new SpeechRecognition();
+		var actualResolved = false;
 		recognition.lang = 'es-ES';
 		recognition.interimResults = false;
 		recognition.maxAlternatives = 5;
@@ -20,6 +21,7 @@ angular.module('starter.controllers')
 
 		function loadExercise() {
 			$scope.correct = null;
+			actualResolved = false;
 		}
 
 		$scope.recordButton = function(argument) {
@@ -67,7 +69,11 @@ angular.module('starter.controllers')
 				$scope.correct = $scope.result.correct;
 			else
 				$scope.correct = false;
-			$scope.setResult();
+			$scope.$apply();
+			if (!actualResolved) {
+				actualResolved = true;
+				$scope.setResult();
+			}
 			// ANALIZAR QUE EL RESULTADO SEA CORRECTO
 			if ($scope.correct) {
 				$timeout(function() {

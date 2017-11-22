@@ -19,9 +19,9 @@
             <div class="item">
                 <button type="button" class="button button-block button-stable button-shadow" ng-click="logInWithMail()" ng-hide="vm.createUser || vm.forgotPassword"><span class="positive">Iniciar Sesión</span></button>
                 <p class="light sub text-center margin-top-20" ng-click="vm.createUser = true;" ng-hide="vm.createUser || vm.forgotPassword">Crear nuevo usuario</p>
-                <p class="light sub text-center margin-top-20" ng-click="vm.forgotPassword = true;" ng-hide="vm.createUser || vm.forgotPassword">Reestablecer contraseña</p>
+                <p class="light sub text-center margin-top-20" ng-click="vm.forgotPassword = true;" ng-hide="vm.createUser || vm.forgotPassword">Restablecer contraseña</p>
                 <button type="button" class="button button-block button-stable button-shadow" ng-click="signInWithMail()" ng-show="vm.createUser"><span class="positive">Crear Usuario</span></button>
-                <button type="button" class="button button-block button-stable button-shadow" ng-click="resetPassword()" ng-show="vm.forgotPassword"><span class="positive">Reestablecer contraseña</span></button>
+                <button type="button" class="button button-block button-stable button-shadow" ng-click="resetPassword()" ng-show="vm.forgotPassword"><span class="positive">Restablecer contraseña</span></button>
                 <p class="light sub text-center margin-top-20" ng-click="cancel()" ng-show="vm.createUser || vm.forgotPassword">Cancelar</p>
                 <!-- <button type="button" class="button button-block button-stable button-shadow" ng-click="authWithFace()"><span class="positive">Usar Facebook</span></button> -->
             </div>

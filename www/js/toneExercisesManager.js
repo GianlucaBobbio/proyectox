@@ -2,10 +2,10 @@ angular.module('starter.api')
   .service('ToneExercisesManager', function($http, $filter, $firebase, $firebaseArray, $window, AuthService, $q, $rootScope, $firebaseObject) {
     var exercisesDone = null;
     this.maxLowerAmplitude = function() {
-    	return 0.33;
+    	return 50;
     }
     this.minHigherAmplitude = function() {
-    	return 0.66;
+    	return 70;
     }
     this.getExercises = function(category) {
       var self = this;

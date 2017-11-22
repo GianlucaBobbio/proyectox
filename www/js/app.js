@@ -20,6 +20,9 @@ angular.module('starter', ['ionic', 'ui.router', 'starter.controllers', 'starter
       StatusBar.styleDefault();
     }
   });
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    event.preventDefault();
+  }, 100);
   $rootScope.userId = AuthService.getUserUid();
   if ($rootScope.userId) {
     $rootScope.fireUser = $firebaseObject(firebase.database().ref("users/"+$rootScope.userId));

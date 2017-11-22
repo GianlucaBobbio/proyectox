@@ -11,8 +11,8 @@ angular.module('starter.controllers')
         $scope.vm = {};
         $scope.vm.actualAmp = 0;
         $scope.mediaAmplitude = 0;
-        $scope.maxLowerAmp = ToneExercisesManager.maxLowerAmplitude() * 100;
-        $scope.minHigherAmp = ToneExercisesManager.minHigherAmplitude() * 100;
+        $scope.maxLowerAmp = ToneExercisesManager.maxLowerAmplitude();
+        $scope.minHigherAmp = ToneExercisesManager.minHigherAmplitude();
 
         
         init();
@@ -63,8 +63,15 @@ angular.module('starter.controllers')
                         //         amplitudes.push(ampDb);
                         //     }
                         // }
-                        if (amp > 0) {
-                            amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                        // if (amp > 0) {
+                        //     amp = 15 * Math.log10((amp * 0.6325) / 0.00002);
+                        //     $scope.vm.actualAmp = amp;
+                        //     if (amp > 30) {
+                        //         amplitudes.push(amp);
+                        //     }
+                        // }
+                        if(amp > 0) {
+                            amp = 20 * Math.log10(amp * 32767);
                             $scope.vm.actualAmp = amp;
                             if (amp > 30) {
                                 amplitudes.push(amp);

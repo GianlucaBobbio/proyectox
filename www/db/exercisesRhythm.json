@@ -93,88 +93,6 @@
 		"time": 480
 	}]
 },{
-	"id":2,
-	"description":"En el parque.",
-	"phrase":[{
-		"word": "Los ",
-		"time": 240
-	},{
-		"word": "pulpos ",
-		"time": 480
-	},{
-		"word": "sólo ",
-		"time": 280
-	},{
-		"word": "tienen ",
-		"time": 400
-	},{
-		"word": "cuatro ",
-		"time": 400
-	},{
-		"word": "patas ",
-		"time": 480
-	},{
-		"word": "para ",
-		"time": 440
-	},{
-		"word": "poder ",
-		"time": 360
-	},{
-		"word": "moverse ",
-		"time": 480
-	},{
-		"word": "y ",
-		"time": 60
-	},{
-		"word": "agarrar ",
-		"time": 560
-	},{
-		"word": "cosas",
-		"time": 540
-	},{
-		"word": ". ",
-		"time": 440
-	},{
-		"word": "Viven ",
-		"time": 380
-	},{
-		"word": "en ",
-		"time": 60
-	},{
-		"word": "el ",
-		"time": 60
-	},{
-		"word": "fondo ",
-		"time": 580
-	},{
-		"word": "del ",
-		"time": 100
-	},{
-		"word": "mar",
-		"time": 340
-	},{
-		"word": ", ",
-		"time": 240
-	},{
-		"word": "y ",
-		"time": 60
-	},{
-		"word": "son ",
-		"time": 200
-	},{
-		"word": "muy ",
-		"time": 220
-	},{
-		"word": "buenos ",
-		"time": 320
-	},{
-		"word": "para ",
-		"time": 200
-	},{
-		"word": "comer.",
-		"time": 560
-	}]
-},{
 	"id":3,
 	"description":"En el parque.",
 	"phrase":[{
@@ -663,7 +581,7 @@
 		"word": "a ",
 		"time": 100
 	},{
-		"word": "estudar ",
+		"word": "estudiar ",
 		"time": 400
 	},{
 		"word": "por ",
@@ -853,5 +771,87 @@
 	},{
 		"word": "llevar.",
 		"time": 400
+	}]
+},{
+	"id":2,
+	"description":"En el parque.",
+	"phrase":[{
+		"word": "Los ",
+		"time": 240
+	},{
+		"word": "pulpos ",
+		"time": 480
+	},{
+		"word": "sólo ",
+		"time": 280
+	},{
+		"word": "tienen ",
+		"time": 400
+	},{
+		"word": "cuatro ",
+		"time": 400
+	},{
+		"word": "patas ",
+		"time": 480
+	},{
+		"word": "para ",
+		"time": 440
+	},{
+		"word": "poder ",
+		"time": 360
+	},{
+		"word": "moverse ",
+		"time": 480
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "agarrar ",
+		"time": 560
+	},{
+		"word": "cosas",
+		"time": 540
+	},{
+		"word": ". ",
+		"time": 440
+	},{
+		"word": "Viven ",
+		"time": 380
+	},{
+		"word": "en ",
+		"time": 60
+	},{
+		"word": "el ",
+		"time": 60
+	},{
+		"word": "fondo ",
+		"time": 580
+	},{
+		"word": "del ",
+		"time": 100
+	},{
+		"word": "mar",
+		"time": 340
+	},{
+		"word": ", ",
+		"time": 240
+	},{
+		"word": "y ",
+		"time": 60
+	},{
+		"word": "son ",
+		"time": 200
+	},{
+		"word": "muy ",
+		"time": 220
+	},{
+		"word": "buenos ",
+		"time": 320
+	},{
+		"word": "para ",
+		"time": 200
+	},{
+		"word": "comer.",
+		"time": 560
 	}]
 }]

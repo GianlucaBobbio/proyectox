@@ -61,6 +61,8 @@ angular.module('starter')
       }).catch(function(error) {
         if (error.code == "auth/invalid-email") {
           alert("Error: El email ingresado no se corresponde con un usuario registrado");
+        } else if (error.code == "auth/weak-password") {
+          alert("Hubo un problema al crear el usuario : La contraseña debe contener entre 6 y 20 caracteres.");
         } else if (error.code == "auth/user-not-found") {
           alert("Error: El email ingresado no se corresponde con un usuario registrado");
         } else {
@@ -74,7 +76,11 @@ angular.module('starter')
         alert("Hecho! Se ha actualizado la contraseña ");
         return true;
       }).catch(function(error) {
-        alert("Error: " + error);
+        if (error.code == "auth/weak-password") {
+          alert("Hubo un problema al crear el usuario : La contraseña debe contener entre 6 y 20 caracteres.");
+        } else {
+          alert("Error: " + error);
+        }
         return false;
       });
     }

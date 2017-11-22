@@ -15,8 +15,8 @@ angular.module('starter.controllers')
 
 		function loadExercise() {
 			
-			
-			$scope.actualExerciseTime = $scope.actualExercise.phrase.reduce((a, b) => a.time + b, 0);
+			$scope.actualExerciseTime = 0;
+			$scope.actualExercise.phrase.forEach(word => {$scope.actualExerciseTime = $scope.actualExerciseTime + word.time})
 			$scope.correct = null;
 			$scope.recording = false;
 			$scope.startTime = null;
@@ -84,7 +84,6 @@ angular.module('starter.controllers')
 
 		$scope.finishExercise = function() {
 			if ($scope.diffTime < $scope.actualExerciseTime + 1000 && $scope.diffTime > $scope.actualExerciseTime - 1000) {
-				
 				$scope.correct = true;
 			} else {
 				

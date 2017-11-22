@@ -2,49 +2,49 @@
 	"id":1,
 	"name": "Biblioteca",
 	"toneFrom": 40,
-	"toneTo": 50,
+	"toneTo": 60,
 	"phrase": "Buenos días, vengo a devolver este libro",
 	"image": "volumen/biblioteca.jpg"
 },{
 	"id":2,
 	"name": "Conversación cercana",
-	"toneFrom": 45,
-	"toneTo": 55,
+	"toneFrom": 50,
+	"toneTo": 70,
 	"phrase": "Después de dos semanas de vacaciones hoy empiezo las clases",
 	"image": "volumen/conversacion_cercana.jpg"
 },{
 	"id":3,
 	"name": "Restaurante",
 	"toneFrom": 60,
-	"toneTo": 70,
+	"toneTo": 80,
 	"phrase": "Vamos a pedir una pizza grande y de postre torta de chocolate",
 	"image": "volumen/restaurante.jpg"
 },{
 	"id":4,
 	"name": "Conversación con ruido de fondo o lejana",
 	"toneFrom": 65,
-	"toneTo": 75,
+	"toneTo": 85,
 	"phrase": "Para llegar tenés que caminar dos cuadras más derecho y doblar a la izquierda",
 	"image": "volumen/conversacion_lejana.jpg"
 },{
 	"id":5,
 	"name": "Conversación con alguien pasando la aspiradora",
-	"toneFrom": 75,
+	"toneFrom": 70,
 	"toneTo": 85,
 	"phrase": "Me falta lavar los platos y ordenar la cocina",
 	"image": "volumen/aspiradora.jpg"
 },{
 	"id":6,
 	"name": "Iglesia",
-	"toneFrom": 40,
-	"toneTo": 55,
+	"toneFrom": 30,
+	"toneTo": 50,
 	"phrase": "Señor, haz de mí un instrumento de tu paz; que donde hay odio, ponga yo amor.",
 	"image": "volumen/iglesia.jpg"
 },{
 	"id":6,
 	"name": "Museo",
-	"toneFrom": 45,
-	"toneTo": 55,
+	"toneFrom": 40,
+	"toneTo": 60,
 	"phrase": "Me gusta mucho la obra de este pintor.",
 	"image": "volumen/museo.jpg"
 }]

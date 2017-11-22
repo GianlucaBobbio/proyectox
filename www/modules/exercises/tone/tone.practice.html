@@ -21,6 +21,7 @@
                 <div class="white-card" style="position: relative;">
                     <div class="white-card-title">Grábate para practicar y conocer tu volúmen promedio</div>
                     <div class="white-card-content"></div>
+                    {{prueba}}
                 </div>
                 <div ng-if="mediaAmplitude" class="text-on-bg big-text" style="text-align: center;">
                     <span class="positive">
@@ -29,7 +30,7 @@
                         <span ng-show="!recording"> PROMEDIO </span>
                         : </span>
                     <br>
-                    <span>{{mediaAmplitude}}</span>
+                    <span>{{mediaAmplitude | number : 2}}</span>
                 </div>
             </div>
         </div>

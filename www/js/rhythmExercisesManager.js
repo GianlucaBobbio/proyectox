@@ -8,7 +8,7 @@ angular.module('starter.api')
     }
     this.resetExercises = function() {
       var self = this;
-      return $http.get('db/exercisesrhythm.json').then(function(json) {
+      return $http.get('db/exercisesRhythm.json').then(function(json) {
         var exercises = json.data;
         $window.localStorage.setItem("rhythmExercises", JSON.stringify(exercises));
         return self.emptyFireExercises();

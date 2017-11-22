@@ -78,8 +78,10 @@ angular.module('starter.controllers')
 
       }
       $scope.correct = correct;
-      actualResolved = true;
-      $scope.setResult();
+      if(!actualResolved){
+        actualResolved = true;
+        $scope.setResult();
+      }
       if (correct) {
         $timeout(function() {
           stopPlaying();
